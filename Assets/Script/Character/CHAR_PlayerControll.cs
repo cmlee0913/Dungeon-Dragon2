@@ -15,12 +15,15 @@ public class CHAR_PlayerControll : MonoBehaviour
     public Animator playerAnimator;
     public float eulerAnglesY;
 
+    public AudioSource AttackSound;
+    public AudioSource WalkSound;
+
     void Awake() {
 
     }
 
     void Start() {
-        
+        WalkSound.mute = true;
     }
 
     void Update() {
@@ -67,10 +70,12 @@ public class CHAR_PlayerControll : MonoBehaviour
         if (vertical != 0)
         {
             isMove = true;
+            WalkSound.mute = false;
         }
         else if (vertical == 0)
         {
             isMove = false;
+            WalkSound.mute = true;
         }
 
         if (isMove) { // 이동, 회전
@@ -103,6 +108,7 @@ public class CHAR_PlayerControll : MonoBehaviour
 	void Attack()
 	{
         if (Input.GetKeyDown(KeyCode.A) && isAttackReady) {
+            StartCoroutine(attackSoundOn());
             playerAnimator.SetTrigger("isAttack");
 		    playerAnimator.SetBool("Attacking", true);
         }        
@@ -127,4 +133,14 @@ public class CHAR_PlayerControll : MonoBehaviour
         playerAnimator.SetBool("Attacking", false);
         isAttackReady = true;
 	}
+
+    IEnumerator attackSoundOn()
+    {
+        yield return new WaitForSeconds(0.1f);
+        if (AttackSound.isPlaying != true)
+        {
+            AttackSound.Play();
+        }
+        yield return new WaitForSeconds(2f);
+    }
 }
