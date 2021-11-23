@@ -12,7 +12,7 @@ public class CheckPlayer : MonoBehaviour
     }
 
     void Update() {
-        if (isPlayer && Input.GetKeyDown(KeyCode.Space))
+        if (isPlayer && Input.GetKeyDown(KeyCode.E))
             OnActive();
     }
 

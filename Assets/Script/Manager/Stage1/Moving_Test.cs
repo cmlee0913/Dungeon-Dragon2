@@ -29,7 +29,7 @@ public class Moving_Test : MonoBehaviour
         if (isNotDelay)
         {
             //SetActivated();
-            CheckAnswer();
+            //CheckAnswer();
         }
     }
 
