@@ -10,6 +10,7 @@ TagManager:
   - Monster
   - Stage1Camera
   - Item
+  - Sword
   layers:
   - Default
   - TransparentFX
