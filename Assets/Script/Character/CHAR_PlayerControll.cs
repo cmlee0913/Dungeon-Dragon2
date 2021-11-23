@@ -30,6 +30,7 @@ public class CHAR_PlayerControll : MonoBehaviour
         AnimatorUpdate();
         SpeedControll();
         Attack();
+        playerSound();
     }
 
     void FixedUpdate() {
@@ -70,17 +71,31 @@ public class CHAR_PlayerControll : MonoBehaviour
         if (vertical != 0)
         {
             isMove = true;
-            WalkSound.mute = false;
+            
         }
         else if (vertical == 0)
         {
             isMove = false;
-            WalkSound.mute = true;
+            
         }
 
         if (isMove) { // 이동, 회전
             transform.position += playerDir * speed * Time.deltaTime * velocity;
             isMove = false;
+        }
+
+
+    }
+
+    void playerSound()
+    {
+        if (vertical != 0)
+        {
+            WalkSound.mute = false;
+        }
+        else if (vertical == 0)
+        {
+            WalkSound.mute = true;
         }
     }
 
