@@ -8,6 +8,8 @@ TagManager:
   - Portal
   - Ground
   - Monster
+  - Stage1Camera
+  - Item
   layers:
   - Default
   - TransparentFX
