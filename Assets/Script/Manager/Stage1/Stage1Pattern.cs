@@ -12,6 +12,9 @@ public class Stage1Pattern : MonoBehaviour
 
     public List<GameObject> GroundTile;
     public List<GameObject> AnswerTile;
+
+    public AudioSource ClearSound; //stage1 클리어 효과음
+
     // Start is called before the first frame update
     void Start()
     {
@@ -24,7 +27,10 @@ public class Stage1Pattern : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetKeyDown(KeyCode.G)) //클리어 사운드 테스트용
+        {
+            StartCoroutine(OpenDoor());
+        }
     }
 
     public void SettingTileNumber()
@@ -164,12 +170,17 @@ public class Stage1Pattern : MonoBehaviour
 
     IEnumerator OpenDoor()
     {
+        ClearSound.Play();
+        yield return new WaitForSeconds(2f);
+
         Door.GetComponent<OpenDoor>().Clear();
         Camera.SetActive(true);
 
-        yield return new WaitForSeconds(2.0f);
+        yield return new WaitForSeconds(2.5f);
 
         Camera.SetActive(false);
+        yield return new WaitForSeconds(1f);
+        ClearSound.Stop();
     }
     public void TakeAnswerPuzzle(bool puzzleClear)
     {
