@@ -100,7 +100,7 @@ public class Stage3Manager : MonoBehaviour
             new_item_box.GetComponent<Stage3ItemBox>().is_item = false;
         }
 
-        new_item_box.transform.position = RandomPosition();
+        new_item_box.transform.position = RandomBoxPosition();
     }
 
     Vector3 RandomPosition()
@@ -117,5 +117,17 @@ public class Stage3Manager : MonoBehaviour
         Vector3 respawn_pos = pos + new_pos;
 
         return respawn_pos;
+    }
+
+    Vector3 RandomBoxPosition()
+    {
+        Vector3 pos = respawn_range.transform.position;
+
+        float range_x = Random.Range(-100, 210);
+        float range_z = Random.Range(105, -220);
+
+        Vector3 new_pos = new Vector3(range_x, 1f, range_z);
+
+        return new_pos;
     }
 }
