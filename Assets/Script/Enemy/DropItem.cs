@@ -4,7 +4,6 @@ using System.Collections;
 public class DropItem : MonoBehaviour {
 	public enum ItemKind
 	{
-		Attack,
 		Heal,
 		Object
 	};

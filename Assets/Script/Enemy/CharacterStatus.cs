@@ -37,13 +37,13 @@ public class CharacterStatus : MonoBehaviour
     {
         switch (itemKind)
         {
-            case DropItem.ItemKind.Attack:
-                powerBoostTime = 5.0f;
-                powerUpEffect.Play();
-                break;
             case DropItem.ItemKind.Heal:
                 // MaxHP의 절반 회복.
                 HP = Mathf.Min(HP + MaxHP / 2, MaxHP);
+                break;
+            case DropItem.ItemKind.Object:
+                //오브젝트 아이템 획득.
+
                 break;
         }
     }

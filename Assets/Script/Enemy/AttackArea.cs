@@ -35,8 +35,6 @@ public class AttackArea : MonoBehaviour {
 	{
 		// 공격 당한 상대의 Damage 메시지를 보낸다.
 		other.SendMessage("Damage",GetAttackInfo());
-		// 공격한 대상을 저장한다.
-		status.lastAttackTarget = other.transform.root.gameObject;
 	}
 	
 	
