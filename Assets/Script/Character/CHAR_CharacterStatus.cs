@@ -2,6 +2,7 @@
 using System.Collections;
 
 public class CHAR_CharacterStatus : MonoBehaviour {
+    public CHAR_PlayerControll cHAR_PlayerControll;
 
     //---------- 공격 장에서 사용한다. ----------
     // 체력.
@@ -21,7 +22,6 @@ public class CHAR_CharacterStatus : MonoBehaviour {
     //--------- 애니메이션 장에서 사용한다. -----------
     // 상태.
     public bool attacking = false;
-    public bool died = false;
 
     // 공격력 강화.
     public bool powerBoost = false;
@@ -35,16 +35,20 @@ public class CHAR_CharacterStatus : MonoBehaviour {
  
     void Update()
     {
-        Die();
+
     }
 
     void Damage(AttackArea.AttackInfo attackInfo) {
-        HP -= attackInfo.attackPower;
-    }
-
-    void Die() {
-        if (HP == 0) {
-
+        if (!cHAR_PlayerControll.died && HP > attackInfo.attackPower) {
+            cHAR_PlayerControll.playerAnimator.SetTrigger("getHit");
+            HP -= attackInfo.attackPower;
+        }
+        else if (HP <= attackInfo.attackPower) {
+            HP = 0;
+            cHAR_PlayerControll.died = true;
+            cHAR_PlayerControll.playerAnimator.SetBool("Died", cHAR_PlayerControll.died);
+            this.gameObject.tag = "DiePlayer";
+            cHAR_PlayerControll.playerAnimator.SetTrigger("isDie");
         }
     }
 }

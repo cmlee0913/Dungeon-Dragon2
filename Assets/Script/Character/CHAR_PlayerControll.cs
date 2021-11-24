@@ -12,6 +12,7 @@ public class CHAR_PlayerControll : MonoBehaviour
     bool isMove = false;
     public bool fdown;
     public bool isAttackReady = true;
+    public bool died = false;
     public Animator playerAnimator;
     public float eulerAnglesY;
 
@@ -39,52 +40,46 @@ public class CHAR_PlayerControll : MonoBehaviour
     }
 
     void Move() {
-        vertical = Input.GetAxis("Vertical");
+        vertical = died ? 0 : Input.GetAxis("Vertical");
 
         Vector3 playerDir = transform.forward * vertical;
 
-        if (Input.GetKey(KeyCode.LeftShift)) // 대쉬 중일 때
-        {
-            if (4.8f <= speed && speed < 8f)
-                speed += 0.2f;
-            if (speed < 5f)
-                if (vertical != 0)
+        if (!died) {
+            if (Input.GetKey(KeyCode.LeftShift)) {
+                if (4.8f <= speed && speed < 8f)
                     speed += 0.2f;
-            if(speed == 8f)
-                speed = 8f;
-            if (speed == 0)
-                speed = 0;
-        }
-        else if (!Input.GetKey(KeyCode.LeftShift)) // 대쉬 아닐 때
-        {
-            if (speed < 5f)
-                if (vertical != 0)
-                    speed += 0.2f;
-            if (speed > 5f)     
-                speed -= 0.2f;
-            if (speed == 5f)
-                speed = 5f;
-            if (speed == 0)
-                speed = 0;
+                if (speed < 5f)
+                    if (vertical != 0)
+                        speed += 0.2f;
+                if (speed == 8f)
+                    speed = 8f;
+                if (speed == 0)
+                    speed = 0;
+            }
+            else if (!Input.GetKey(KeyCode.LeftShift)) {
+                if (speed < 5f)
+                    if (vertical != 0)
+                        speed += 0.2f;
+                if (speed > 5f)     
+                    speed -= 0.2f;
+                if (speed == 5f)
+                    speed = 5f;
+                if (speed == 0)
+                    speed = 0;
+            }
         }
 
-        if (vertical != 0)
-        {
+        if (vertical != 0) {
             isMove = true;
-            
         }
-        else if (vertical == 0)
-        {
-            isMove = false;
-            
+        else if (vertical == 0) {
+            isMove = false; 
         }
 
-        if (isMove) { // 이동, 회전
+        if (isMove) {
             transform.position += playerDir * speed * Time.deltaTime * velocity;
             isMove = false;
         }
-
-
     }
 
     void playerSound()
@@ -100,7 +95,7 @@ public class CHAR_PlayerControll : MonoBehaviour
     }
 
     void Rotate() {
-        horizontal = Input.GetAxisRaw("Horizontal");
+        horizontal = died ? 0 : Input.GetAxisRaw("Horizontal");
         Vector3 playerRotation = transform.rotation.eulerAngles;
         eulerAnglesY = playerRotation.y + (horizontal * rotateSpeed);
 
