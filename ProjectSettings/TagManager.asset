@@ -11,6 +11,7 @@ TagManager:
   - Stage1Camera
   - Item
   - Sword
+  - Boss
   layers:
   - Default
   - TransparentFX
@@ -18,10 +19,10 @@ TagManager:
   - Ground
   - Water
   - UI
-  - 
-  - 
-  - 
-  - 
+  - EnemyHit
+  - PlayerHit
+  - EnemyAttack
+  - PlayerAttack
   - 
   - 
   - 
