@@ -20,7 +20,6 @@ public class AnswerConsole : MonoBehaviour
         {
             patternManager.TakeAnswerPuzzle(patternManager.CheckPuzzleAnswer());
         }
-        this.GetComponent<MeshRenderer>().materials[0].color = new Color(0.0f, 0.0f, 0.0f, 0.0f);
     }
 
     void OnCollisionEnter(Collision other)
