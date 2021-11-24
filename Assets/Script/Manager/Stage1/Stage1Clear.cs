@@ -1,16 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
-public class AnswerConsole : MonoBehaviour
+public class Stage1Clear : MonoBehaviour
 {
-    public Stage1Pattern patternManager;
     public bool isPlayer;
     // Start is called before the first frame update
     void Start()
     {
         isPlayer = false;
-        
     }
 
     // Update is called once per frame
@@ -18,13 +17,9 @@ public class AnswerConsole : MonoBehaviour
     {
         if(isPlayer && Input.GetKeyDown(KeyCode.E))
         {
-            patternManager.TakeAnswerPuzzle(patternManager.CheckPuzzleAnswer());
-        }
-
-        if(Input.GetKeyDown(KeyCode.R)) // µð¹ö±ë¿ë
-        {
-            patternManager.puzzleLevel = 5;
-            patternManager.ClearPuzzle();
+            // StageControl.Instance.StageClear(1);
+            SceneManager.LoadScene("Lobby");
+            
         }
     }
 
