@@ -122,8 +122,8 @@ public class MonsterCtrl : MonoBehaviour
 			if (characterMove.Arrived())
 			{
 				// 대기 상태로 전환한다.
-				//waitTime = Random.Range(waitBaseTime, waitBaseTime * 2.0f);
-				waitTime = 2.0f;
+				waitTime = Random.Range(waitBaseTime, waitBaseTime * 2.0f);
+				//waitTime = 2.0f;
 			}
 			// 타겟을 발견하면 추적한다.
 			if (attackTarget)

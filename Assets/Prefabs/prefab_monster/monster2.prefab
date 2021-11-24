@@ -777,6 +777,7 @@ GameObject:
   - component: {fileID: 5532614771721227613}
   - component: {fileID: 1941269038142690689}
   - component: {fileID: 6133414468928705325}
+  - component: {fileID: 614152995}
   m_Layer: 0
   m_Name: monster2
   m_TagString: Untagged
@@ -793,7 +794,7 @@ Transform:
   m_GameObject: {fileID: 2560320364798146561}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -10.905615, y: 0.0000038146973, z: 20.14902}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.47989815, y: 0.47989815, z: 0.47989815}
   m_Children:
   - {fileID: 2885564173537926788}
   - {fileID: 8794535301942360409}
@@ -833,11 +834,11 @@ CharacterController:
   serializedVersion: 2
   m_Height: 1
   m_Radius: 0.7
-  m_SlopeLimit: 45
+  m_SlopeLimit: 20
   m_StepOffset: 0.3
   m_SkinWidth: 0.08
-  m_MinMoveDistance: 0.001
-  m_Center: {x: 0, y: 1, z: 0}
+  m_MinMoveDistance: 0
+  m_Center: {x: 0, y: 0.7, z: 0}
 --- !u!114 &958871180685763395
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -851,7 +852,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waitBaseTime: 2
-  walkRange: 20
+  walkRange: 10
   basePosition: {x: 0, y: 0, z: 0}
   dropItemPrefab: []
   deathSeClip: {fileID: 0}
@@ -869,7 +870,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   arrived: 0
   destination: {x: 0, y: 0, z: 0}
-  walkSpeed: 9
+  walkSpeed: 3
   rotationSpeed: 240
 --- !u!114 &1941269038142690689
 MonoBehaviour:
@@ -899,10 +900,22 @@ MonoBehaviour:
   MaxHP: 100
   Power: 10
   lastAttackTarget: {fileID: 0}
-  characterName: Player
+  characterName: Monster2
   attacking: 0
   died: 0
   powerBoost: 0
+--- !u!114 &614152995
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2560320364798146561}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a9c4fe7f94d06649a713a000d5c6875, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2914529356143220336
 GameObject:
   m_ObjectHideFlags: 0
