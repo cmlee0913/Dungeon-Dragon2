@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4000010070424524}
   - component: {fileID: 33000012473004582}
   - component: {fileID: 23000012768088540}
+  - component: {fileID: 3615325349609819274}
   m_Layer: 0
   m_Name: chest_close
   m_TagString: Untagged
@@ -81,3 +82,15 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &3615325349609819274
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1000011713842796}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d80d53cce1b35a64890991caed864211, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

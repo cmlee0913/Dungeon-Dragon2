@@ -5,12 +5,11 @@ using UnityEngine;
 public class StageControl : MonoBehaviour
 {
     private static StageControl _instance;
-    // �ν��Ͻ��� �����ϱ� ���� ������Ƽ
+
     public static StageControl Instance
     {
         get
         {
-            // �ν��Ͻ��� ���� ��쿡 �����Ϸ� �ϸ� �ν��Ͻ��� �Ҵ����ش�.
             if (!_instance)
             {
                 _instance = FindObjectOfType(typeof(StageControl)) as StageControl;
@@ -28,6 +27,10 @@ public class StageControl : MonoBehaviour
     bool stage4Clear;
     bool bossClear;
 
+    private void Awake()
+    {
+        DontDestroyOnLoad(gameObject);
+    }
     private void Start()
     {
         stage1Clear = false;
@@ -55,11 +58,11 @@ public class StageControl : MonoBehaviour
                 else return false;
         }
 
-        // �ٸ��� �Է� ��
+
         return false;
     }
 
-    public void StageClear(int stageNumber) // �������� Ŭ���� ��, bool ���� ���� ��
+    public void StageClear(int stageNumber)
     {
         switch(stageNumber)
         {
