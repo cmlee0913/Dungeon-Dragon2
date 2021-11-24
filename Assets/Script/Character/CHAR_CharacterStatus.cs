@@ -38,7 +38,7 @@ public class CHAR_CharacterStatus : MonoBehaviour {
         Die();
     }
 
-    void Damage(CHAR_AttackArea.AttackInfo attackInfo) {
+    void Damage(AttackArea.AttackInfo attackInfo) {
         HP -= attackInfo.attackPower;
     }
 

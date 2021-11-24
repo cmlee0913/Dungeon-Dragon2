@@ -4,45 +4,45 @@ using UnityEngine;
 
 public class CharacterStatus : MonoBehaviour
 {
-    //---------- °ø°Ý Àå¿¡¼­ »ç¿ëÇÑ´Ù. ----------
-    // Ã¼·Â.
+    //---------- ï¿½ï¿½ï¿½ï¿½ ï¿½å¿¡ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½. ----------
+    // Ã¼ï¿½ï¿½.
     public int HP = 100;
     public int MaxHP = 100;
 
-    // °ø°Ý·Â.
+    // ï¿½ï¿½ï¿½Ý·ï¿½.
     public int Power = 10;
 
-    // ¸¶Áö¸·¿¡ °ø°ÝÇÑ ´ë»ó.
+    // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½.
     public GameObject lastAttackTarget = null;
 
-    //---------- GUI ¹× ³×Æ®¿öÅ© Àå¿¡¼­ »ç¿ëÇÑ´Ù. ----------
-    // ÇÃ·¹ÀÌ¾î ÀÌ¸§.
+    //---------- GUI ï¿½ï¿½ ï¿½ï¿½Æ®ï¿½ï¿½Å© ï¿½å¿¡ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½. ----------
+    // ï¿½Ã·ï¿½ï¿½Ì¾ï¿½ ï¿½Ì¸ï¿½.
     public string characterName = "Player";
 
-    //--------- ¾Ö´Ï¸ÞÀÌ¼Ç Àå¿¡¼­ »ç¿ëÇÑ´Ù. -----------
-    // »óÅÂ.
+    //--------- ï¿½Ö´Ï¸ï¿½ï¿½Ì¼ï¿½ ï¿½å¿¡ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½. -----------
+    // ï¿½ï¿½ï¿½ï¿½.
     public bool attacking = false;
     public bool died = false;
 
-    // °ø°Ý·Â °­È­.
+    // ï¿½ï¿½ï¿½Ý·ï¿½ ï¿½ï¿½È­.
     public bool powerBoost = false;
-    // °ø°Ý·Â °­È­ ½Ã°£.
+    // ï¿½ï¿½ï¿½Ý·ï¿½ ï¿½ï¿½È­ ï¿½Ã°ï¿½.
     float powerBoostTime = 0.0f;
 
-    // °ø°Ý·Â °­È­ È¿°ú.
+    // ï¿½ï¿½ï¿½Ý·ï¿½ ï¿½ï¿½È­ È¿ï¿½ï¿½.
     ParticleSystem powerUpEffect;
 
-    //¾ÆÀÌÅÛ È¹µæ.
+    //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ È¹ï¿½ï¿½.
     public void GetItem(DropItem.ItemKind itemKind)
     {
         switch (itemKind)
         {
             case DropItem.ItemKind.Heal:
-                // MaxHPÀÇ Àý¹Ý È¸º¹.
+                // MaxHPï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ È¸ï¿½ï¿½.
                 HP = Mathf.Min(HP + MaxHP / 2, MaxHP);
                 break;
             case DropItem.ItemKind.Object:
-                //¿ÀºêÁ§Æ® ¾ÆÀÌÅÛ È¹µæ.
+                //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ È¹ï¿½ï¿½.
 
                 break;
         }
@@ -50,10 +50,10 @@ public class CharacterStatus : MonoBehaviour
 
     void Start()
     {
-        if (gameObject.tag == "Player")
+        /*if (gameObject.tag == "Player")
         {
             powerUpEffect = transform.Find("PowerUpEffect").GetComponent<ParticleSystem>();
-        }
+        }*/
     }
 
     void Update()
@@ -62,7 +62,7 @@ public class CharacterStatus : MonoBehaviour
         {
             return;
         }
-        powerBoost = false;
+        /*powerBoost = false;
         if (powerBoostTime > 0.0f)
         {
             powerBoost = true;
@@ -71,7 +71,7 @@ public class CharacterStatus : MonoBehaviour
         else
         {
             powerUpEffect.Stop();
-        }
+        }*/
     }
 
 }

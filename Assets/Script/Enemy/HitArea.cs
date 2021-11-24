@@ -3,8 +3,11 @@ using System.Collections;
 
 public class HitArea : MonoBehaviour {
 	
-	void Damage(AttackArea.AttackInfo attackInfo)
+	public GameObject roooot;
+
+	public void Damage(CHAR_AttackArea.AttackInfo attackInfo)
 	{
-		transform.root.SendMessage ("Damage",attackInfo);
+		transform.root.SendMessage("Damage", attackInfo);
+		Debug.Log("공격받았다");
 	}
 }

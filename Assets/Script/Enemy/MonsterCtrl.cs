@@ -9,29 +9,29 @@ public class MonsterCtrl : MonoBehaviour
 	Transform attackTarget;
 	//public GameObject hitEffect;
 
-	// ´ë±â ½Ã°£Àº 2ÃÊ·Î ¼³Á¤ÇÑ´Ù.
+	// ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½ï¿½ï¿½ 2ï¿½Ê·ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.
 	public float waitBaseTime = 2.0f;
-	// ³²Àº ´ë±â ½Ã°£.
+	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½.
 	float waitTime;
-	// ÀÌµ¿ ¹üÀ§ 5¹ÌÅÍ.
+	// ï¿½Ìµï¿½ ï¿½ï¿½ï¿½ï¿½ 5ï¿½ï¿½ï¿½ï¿½.
 	public float walkRange = 5.0f;
-	// ÃÊ±â À§Ä¡¸¦ ÀúÀåÇØ µÑ º¯¼ö.
+	// ï¿½Ê±ï¿½ ï¿½ï¿½Ä¡ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
 	public Vector3 basePosition;
-	// º¹¼öÀÇ ¾ÆÀÌÅÛÀ» ÀúÀåÇÒ ¼ö ÀÖ´Â ¹è¿­·Î ÇÑ´Ù.
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Ö´ï¿½ ï¿½è¿­ï¿½ï¿½ ï¿½Ñ´ï¿½.
 	public GameObject[] dropItemPrefab;
 
-	// ½ºÅ×ÀÌÆ® Á¾·ù.
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½.
 	enum State
 	{
-		Walking,    // Å½»ö.
-		Chasing,    // ÃßÀû.
-		Attacking,  // °ø°Ý.
-		Died,       // »ç¸Á.
+		Walking,    // Å½ï¿½ï¿½.
+		Chasing,    // ï¿½ï¿½ï¿½ï¿½.
+		Attacking,  // ï¿½ï¿½ï¿½ï¿½.
+		Died,       // ï¿½ï¿½ï¿½.
 		Shooting,	
 	};
 
-	State state = State.Walking;        // ÇöÀç ½ºÅ×ÀÌÆ®.
-	State nextState = State.Walking;    // ´ÙÀ½ ½ºÅ×ÀÌÆ®.
+	State state = State.Walking;        // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®.
+	State nextState = State.Walking;    // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®.
 
 	public AudioClip deathSeClip;
 	AudioSource deathSeAudio;
@@ -43,9 +43,9 @@ public class MonsterCtrl : MonoBehaviour
 		status = GetComponent<CharacterStatus>();
 		charaAnimation = GetComponent<CharacterAnimation>();
 		characterMove = GetComponent<MonsterMove>();
-		// ÃÊ±â À§Ä¡¸¦ ÀúÀåÇÑ´Ù.
+		// ï¿½Ê±ï¿½ ï¿½ï¿½Ä¡ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.
 		basePosition = transform.position;
-		// ´ë±â ½Ã°£.
+		// ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½.
 		waitTime = waitBaseTime;
 	}
 
@@ -87,7 +87,7 @@ public class MonsterCtrl : MonoBehaviour
 	}
 
 
-	// ½ºÅ×ÀÌÆ®¸¦ º¯°æÇÑ´Ù.
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.
 	void ChangeState(State nextState)
 	{
 		this.nextState = nextState;
@@ -100,77 +100,77 @@ public class MonsterCtrl : MonoBehaviour
 
 	void Walking()
 	{
-		// ´ë±â ½Ã°£ÀÌ ¾ÆÁ÷ ³²¾Ò´Ù¸é.
+		// ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ò´Ù¸ï¿½.
 		if (waitTime > 0.0f)
 		{
-			// ´ë±â ½Ã°£À» ÁÙÀÎ´Ù.
+			// ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Î´ï¿½.
 			waitTime -= Time.deltaTime;
-			// ´ë±â ½Ã°£ÀÌ ¾ø¾îÁö¸é.
+			// ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½.
 			if (waitTime <= 0.0f)
 			{
-				// ¹üÀ§ ³»ÀÇ ¾îµò°¡.
+				// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½.
 				Vector2 randomValue = Random.insideUnitCircle * walkRange;
-				// ÀÌµ¿ÇÒ °÷À» ¼³Á¤ÇÑ´Ù.
+				// ï¿½Ìµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.
 				Vector3 destinationPosition = basePosition + new Vector3(randomValue.x, 0.0f, randomValue.y);
-				// ¸ñÀûÁö¸¦ ÁöÁ¤ÇÑ´Ù.
+				// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.
 				SendMessage("SetDestination", destinationPosition);
 			}
 		}
 		else
 		{
-			// ¸ñÀûÁö¿¡ µµÂøÇÑ´Ù.
+			// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.
 			if (characterMove.Arrived())
 			{
-				// ´ë±â »óÅÂ·Î ÀüÈ¯ÇÑ´Ù.
+				// ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Â·ï¿½ ï¿½ï¿½È¯ï¿½Ñ´ï¿½.
 				waitTime = Random.Range(waitBaseTime, waitBaseTime * 2.0f);
 				//waitTime = 2.0f;
 			}
-			// Å¸°ÙÀ» ¹ß°ßÇÏ¸é ÃßÀûÇÑ´Ù.
+			// Å¸ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½ï¿½Ï¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.
 			if (attackTarget)
 			{
 				ChangeState(State.Chasing);
 			}
 		}
 	}
-	// ÃßÀû ½ÃÀÛ. 
+	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½. 
 	void ChaseStart()
 	{
 		StateStartCommon();
 	}
-	// ÃßÀû Áß. 
+	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½. 
 	void Chasing()
 	{
-		// ÀÌµ¿ÇÒ °÷À» ÇÃ·¹ÀÌ¾î¿¡ ¼³Á¤ÇÑ´Ù.
+		// ï¿½Ìµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã·ï¿½ï¿½Ì¾î¿¡ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.
 		SendMessage("SetDestination", attackTarget.position);
-		// 2¹ÌÅÍ ÀÌ³»·Î Á¢±ÙÇÏ¸é °ø°ÝÇÑ´Ù.
+		// 2ï¿½ï¿½ï¿½ï¿½ ï¿½Ì³ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.
 		if (Vector3.Distance(attackTarget.position, transform.position) <= 2.0f)
 		{
 			ChangeState(State.Attacking);
 		}
 	}
 
-	// °ø°Ý ½ºÅ×ÀÌÆ®°¡ ½ÃÀÛµÇ±â Àü¿¡ È£ÃâµÈ´Ù.
+	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ÛµÇ±ï¿½ ï¿½ï¿½ï¿½ï¿½ È£ï¿½ï¿½È´ï¿½.
 	void AttackStart()
 	{
 		StateStartCommon();
 		status.attacking = true;
 
-		// ÀûÀÌ ÀÖ´Â ¹æÇâÀ¸·Î µ¹¾Æº»´Ù.
+		// ï¿½ï¿½ï¿½ï¿½ ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Æºï¿½ï¿½ï¿½.
 		Vector3 targetDirection = (attackTarget.position - transform.position).normalized;
 		SendMessage("SetDirection", targetDirection);
 
-		// ÀÌµ¿À» ¸ØÃá´Ù.
+		// ï¿½Ìµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½.
 		SendMessage("StopMove");
 	}
 
-	// °ø°Ý Áß Ã³¸®.
+	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ Ã³ï¿½ï¿½.
 	void Attacking()
 	{
 		if (charaAnimation.IsAttacked())
 			ChangeState(State.Walking);
-		// ´ë±â ½Ã°£À» ´Ù½Ã ¼³Á¤ÇÑ´Ù.
+		// ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½ï¿½ï¿½ ï¿½Ù½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.
 		waitTime = Random.Range(waitBaseTime, waitBaseTime * 2.0f);
-		// Å¸°ÙÀ» ¸®¼ÂÇÑ´Ù.
+		// Å¸ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.
 		attackTarget = null;
 	}
 
@@ -191,11 +191,11 @@ public class MonsterCtrl : MonoBehaviour
 			//gameRuleCtrl.GameClear();
 		}
 
-		// ¿Àµð¿À Àç»ý.
+		// ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½.
 		AudioSource.PlayClipAtPoint(deathSeClip, transform.position);
 	}
 
-	void Damage(AttackArea.AttackInfo attackInfo)
+	public void Damage(CHAR_AttackArea.AttackInfo attackInfo)
 	{
 		//GameObject effect = Instantiate(hitEffect, transform.position, Quaternion.identity) as GameObject;
 		//effect.transform.localPosition = transform.position + new Vector3(0.0f, 0.5f, 0.0f);
@@ -205,18 +205,18 @@ public class MonsterCtrl : MonoBehaviour
 		if (status.HP <= 0)
 		{
 			status.HP = 0;
-			// Ã¼·ÂÀÌ 0ÀÌ¹Ç·Î »ç¸Á ½ºÅ×ÀÌÆ®·Î ÀüÈ¯ÇÑ´Ù.
+			// Ã¼ï¿½ï¿½ï¿½ï¿½ 0ï¿½Ì¹Ç·ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½È¯ï¿½Ñ´ï¿½.
 			ChangeState(State.Died);
 		}
 	}
 
-	// ½ºÅ×ÀÌÆ®°¡ ½ÃÀÛµÇ±â Àü¿¡ ½ºÅ×ÀÌÅÍ½º¸¦ ÃÊ±âÈ­ÇÑ´Ù.
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ÛµÇ±ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í½ï¿½ï¿½ï¿½ ï¿½Ê±ï¿½È­ï¿½Ñ´ï¿½.
 	void StateStartCommon()
 	{
 		status.attacking = false;
 		status.died = false;
 	}
-	// °ø°Ý ´ë»óÀ» ¼³Á¤ÇÑ´Ù. 
+	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½. 
 	public void SetAttackTarget(Transform target)
 	{
 		attackTarget = target;

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CHAR_HitArea : MonoBehaviour
 {
-	void Damage(CHAR_AttackArea.AttackInfo attackInfo)
+	void Damage(AttackArea.AttackInfo attackInfo)
 	{
 		transform.root.SendMessage ("Damage",attackInfo);
 	}

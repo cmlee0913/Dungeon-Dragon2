@@ -408,6 +408,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da73dae3c438c1a4a87048895f1eb9d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  roooot: {fileID: 0}
+  monsterCtrl: {fileID: 0}
 --- !u!1 &1317368292952516347
 GameObject:
   m_ObjectHideFlags: 0
@@ -2000,6 +2002,7 @@ GameObject:
   - component: {fileID: 4322347053648495869}
   - component: {fileID: 169645344}
   - component: {fileID: 169645343}
+  - component: {fileID: 4937045762326594323}
   m_Layer: 8
   m_Name: Head
   m_TagString: Untagged
@@ -2049,6 +2052,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd7fc165c82398445b0e9c63cd95f7f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &4937045762326594323
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7455168077018371369}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da73dae3c438c1a4a87048895f1eb9d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  roooot: {fileID: 0}
+  monsterCtrl: {fileID: 0}
 --- !u!1 &7495039651938264066
 GameObject:
   m_ObjectHideFlags: 0

@@ -21,14 +21,12 @@ public class CHAR_AttackAreaActivator : MonoBehaviour
 
     void StartAttackHit()
 	{
-        Debug.Log ("StartAttackHit");
 		foreach (Collider attackAreaCollider in attackAreaColliders)
 			attackAreaCollider.enabled = true;
 	}
 
 	void EndAttackHit()
 	{
-        Debug.Log ("EndAttackHit");
 		foreach (Collider attackAreaCollider in attackAreaColliders)
 			attackAreaCollider.enabled = false;
 	}
