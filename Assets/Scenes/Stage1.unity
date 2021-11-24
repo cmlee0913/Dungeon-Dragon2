@@ -97,7 +97,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 0}
+  m_LightingDataAsset: {fileID: 112000000, guid: 6288edc7ffa97b74cbe1149c1324e73d, type: 2}
   m_LightingSettings: {fileID: 0}
 --- !u!196 &4
 NavMeshSettings:
@@ -1173,7 +1173,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &151702855
 GameObject:
@@ -2029,9 +2029,8 @@ Transform:
   - {fileID: 254988941}
   - {fileID: 815607088}
   - {fileID: 1228458204}
-  - {fileID: 494067926}
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &313409308
 GameObject:
@@ -2656,7 +2655,7 @@ Transform:
   m_LocalScale: {x: 1.778416, y: 1, z: 1.17}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 26.486}
 --- !u!114 &416312324
 MonoBehaviour:
@@ -4116,7 +4115,7 @@ Transform:
   - {fileID: 107757041}
   - {fileID: 543482926}
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &674405685 stripped
 GameObject:
@@ -4662,7 +4661,7 @@ Transform:
   m_Children:
   - {fileID: 513464321}
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &737509362
 GameObject:
@@ -9763,7 +9762,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   patternManager: {fileID: 393393832}
-  Cursor: {fileID: 6568047399624225491}
+  Cursor: {fileID: 0}
   selectedTile: {fileID: 0}
   selectedNumber: 0
   isNotDelay: 0
@@ -9779,7 +9778,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1974027506
 GameObject:
