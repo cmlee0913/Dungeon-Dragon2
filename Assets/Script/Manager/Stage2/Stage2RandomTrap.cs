@@ -16,6 +16,7 @@ public class Stage2RandomTrap : MonoBehaviour
     void Start()
     {
         glassTime = 0.0f;
+        SettingTrap();
     }
 
     // Update is called once per frame

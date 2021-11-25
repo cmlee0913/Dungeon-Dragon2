@@ -3,9 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class Stage1Clear : MonoBehaviour
+public class StageClear : MonoBehaviour
 {
     public bool isPlayer;
+    public int CurrentStage;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,7 +18,7 @@ public class Stage1Clear : MonoBehaviour
     {
         if(isPlayer && Input.GetKeyDown(KeyCode.E))
         {
-            // StageControl.Instance.StageClear(1);
+            // StageControl.Instance.StageClear(CurrentStage);
             SceneManager.LoadScene("Lobby");
             
         }
