@@ -9,13 +9,22 @@ public class Stage2RandomTrap : MonoBehaviour
 
     public float glassTime;
 
+    public float TrapTime;
+
     public GameObject glassEffect;
 
     public Text remainTimeText;
     // Start is called before the first frame update
     void Start()
     {
+
+        for (int i = 0; i < TrapList.Count; i++)
+        {
+            TrapList[i].AddComponent<Test_ClockingCube>();
+        }
+
         glassTime = 0.0f;
+        TrapTime = 0.0f;
         SettingTrap();
     }
 
@@ -28,12 +37,20 @@ public class Stage2RandomTrap : MonoBehaviour
         if (glassTime <= 0.0f)
         {
             for(int i = 0; i < TrapList.Count; i++)
-            {
+            { 
                 TrapList[i].GetComponent<Test_ClockingCube>().hasGlass = false;
             }
             glassEffect.SetActive(false);
         }
 
+        if (TrapTime > 0.0f)
+            TrapTime -= Time.deltaTime;
+
+        if(TrapTime <= 0.0f)
+        {
+            SettingTrap();
+            TrapTime = 5.0f;
+        }
         remainTimeText.text = glassTime.ToString("F1");
     }
 

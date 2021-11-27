@@ -7,11 +7,14 @@ public class Test_ClockingCube : MonoBehaviour
     public bool isClocking;
 
     public bool hasGlass;
+
+    public GameObject Player;
     // Start is called before the first frame update
     void Start()
     {
         isClocking = false;
         hasGlass = false;
+        Player = GameObject.FindWithTag("Player");
     }
 
     // Update is called once per frame
@@ -21,16 +24,32 @@ public class Test_ClockingCube : MonoBehaviour
         {
             if (isClocking)
             {
-                this.GetComponent<MeshRenderer>().materials[0].color = new Color(1f, 0f, 0f, 0.02f);
+                this.GetComponent<MeshRenderer>().enabled = false;
             }
             else
             {
-                this.GetComponent<MeshRenderer>().materials[0].color = new Color(1f, 0f, 0f, 1f);
+                this.GetComponent<MeshRenderer>().enabled = true;
             }
         }
         else
         {
-            this.GetComponent<MeshRenderer>().materials[0].color = new Color(1f, 0f, 0f, 1f);
+            this.GetComponent<MeshRenderer>().enabled = true;
         }
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if(collision.transform.gameObject.tag == "Player")
+        {
+            StartCoroutine(ResetPosition());
+        }
+    }
+
+    IEnumerator ResetPosition()
+    {
+
+        yield return new WaitForSeconds(2.0f);
+
+        Player.transform.position = new Vector3(-35.0f, 0.0f, 16.5f);
     }
 }
