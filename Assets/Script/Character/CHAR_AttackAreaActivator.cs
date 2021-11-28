@@ -30,4 +30,16 @@ public class CHAR_AttackAreaActivator : MonoBehaviour
 		foreach (Collider attackAreaCollider in attackAreaColliders)
 			attackAreaCollider.enabled = false;
 	}
+
+	void StartPowerAttackHit()
+	{
+		foreach (Collider attackAreaCollider in attackAreaColliders)
+			attackAreaCollider.enabled = true;
+	}
+
+	void EndPowerAttackHit()
+	{
+		foreach (Collider attackAreaCollider in attackAreaColliders)
+			attackAreaCollider.enabled = false;
+	}
 }

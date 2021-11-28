@@ -9,7 +9,7 @@ public class CHAR_PlayerControll : MonoBehaviour
     public float speed;
     public float velocity;
     public float rotateSpeed;
-    bool isMove = false;
+    public bool isMove = false;
     public bool fdown;
     public bool isAttackReady = true;
     public bool died = false;
@@ -21,16 +21,21 @@ public class CHAR_PlayerControll : MonoBehaviour
 
     public AudioSource AttackSound;
     public AudioSource WalkSound;
+    public ImgsFillDynamic imgsFillDynamic;
+    CHAR_CharacterStatus cHAR_CharacterStatus;
 
     void Awake() {
-
+        cHAR_CharacterStatus = GetComponent<CHAR_CharacterStatus>();
     }
 
     void Start() {
         WalkSound.mute = true;
+        if (imgsFillDynamic)
+            imgsFillDynamic.SetValue(1f, false, 0.3f);
     }
 
     void Update() {
+        imgsFillDynamic.SetValue(stamina / 100, false, 4F);
         AnimatorUpdate();
         SpeedControll();
         Attack();
@@ -91,7 +96,6 @@ public class CHAR_PlayerControll : MonoBehaviour
 
         if (isMove) {
             transform.position += playerDir * speed * Time.deltaTime * velocity;
-            isMove = false;
         }
     }
 
@@ -143,8 +147,8 @@ public class CHAR_PlayerControll : MonoBehaviour
             return;
         }
         RecoveryTime += Time.fixedDeltaTime;
-        if (RecoveryTime > 3)
-            stamina += 0.2f;
+        if (RecoveryTime > 2)
+            stamina += 0.6f;
     }
 
 	void Attack()
@@ -153,11 +157,18 @@ public class CHAR_PlayerControll : MonoBehaviour
             StartCoroutine(attackSoundOn());
             playerAnimator.SetTrigger("isAttack");
 		    playerAnimator.SetBool("Attacking", true);
-        }        
+        }
+        else if (Input.GetKeyDown(KeyCode.S) && isAttackReady) {
+            StartCoroutine(attackSoundOn());
+            playerAnimator.SetTrigger("isPowerAttack");
+		    playerAnimator.SetBool("Attacking", true);
+        }    
 	}
 
     void AnimatorUpdate() {
-        playerAnimator.SetFloat("MoveSpeed", speed);
+        playerAnimator.SetBool("isMove", isMove);
+        playerAnimator.SetFloat("MoveSpeed", speed * vertical);
+        playerAnimator.SetFloat("stamina", stamina);
     }
 
     void StartMove()
@@ -165,7 +176,7 @@ public class CHAR_PlayerControll : MonoBehaviour
 		Debug.Log ("StartMove");
 	}
 
-    void StartAttackHit()
+    void StartAttack()
 	{
         isAttackReady = false;
 	}
@@ -173,6 +184,21 @@ public class CHAR_PlayerControll : MonoBehaviour
     void EndAttack()
 	{
         playerAnimator.SetBool("Attacking", false);
+        isAttackReady = true;
+	}
+
+    void StartPowerAttack()
+	{
+		isAttackReady = false;
+        cHAR_CharacterStatus.Power = 20;
+        stamina -= 10;
+        RecoveryTime = 0;
+	}
+
+	void EndPowerAttack()
+	{
+		playerAnimator.SetBool("Attacking", false);
+        cHAR_CharacterStatus.Power = 10;
         isAttackReady = true;
 	}
 

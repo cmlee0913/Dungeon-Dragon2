@@ -71,7 +71,6 @@ public class ImgsFillDynamic : MonoBehaviour
                     this.FillRound.SetFill(this.facter);
             }
 
-            this.SetTextFactor();
             this.SetImageColor();
         }
     }
