@@ -6,15 +6,18 @@ public class CHAR_PlayerControll : MonoBehaviour
 {
     public float horizontal;
     public float vertical;
-    float speed;
+    public float speed;
     public float velocity;
     public float rotateSpeed;
     bool isMove = false;
     public bool fdown;
     public bool isAttackReady = true;
     public bool died = false;
+    public bool isDrained = false;
     public Animator playerAnimator;
     public float eulerAnglesY;
+    public float stamina = 100f; 
+    public float RecoveryTime = 0;
 
     public AudioSource AttackSound;
     public AudioSource WalkSound;
@@ -37,6 +40,7 @@ public class CHAR_PlayerControll : MonoBehaviour
     void FixedUpdate() {
         Move();
         Rotate();
+        Stamina();
     }
 
     void Move() {
@@ -45,7 +49,10 @@ public class CHAR_PlayerControll : MonoBehaviour
         Vector3 playerDir = transform.forward * vertical;
 
         if (!died) {
-            if (Input.GetKey(KeyCode.LeftShift)) {
+            if (vertical != 0) {
+                if (Input.GetKey(KeyCode.LeftShift) && stamina > 0) {
+                RecoveryTime = 0;
+                stamina -= 0.4f;
                 if (4.8f <= speed && speed < 8f)
                     speed += 0.2f;
                 if (speed < 5f)
@@ -55,8 +62,10 @@ public class CHAR_PlayerControll : MonoBehaviour
                     speed = 8f;
                 if (speed == 0)
                     speed = 0;
-            }
-            else if (!Input.GetKey(KeyCode.LeftShift)) {
+                }
+
+                else if (!Input.GetKey(KeyCode.LeftShift) || stamina <= 0) {
+                Recovery();
                 if (speed < 5f)
                     if (vertical != 0)
                         speed += 0.2f;
@@ -66,6 +75,10 @@ public class CHAR_PlayerControll : MonoBehaviour
                     speed = 5f;
                 if (speed == 0)
                     speed = 0;
+                }
+            }
+            else if (vertical == 0) {
+                Recovery();
             }
         }
 
@@ -113,6 +126,25 @@ public class CHAR_PlayerControll : MonoBehaviour
             if (speed == 0)
                 speed = 0;
         }
+    }
+
+    void Stamina() {
+        if (stamina <= 0) {
+            stamina = 0;
+        }
+        if (stamina >= 100) {
+            stamina = 100;
+        }
+    }
+    
+    void Recovery() {
+        if (stamina >= 100) {
+            RecoveryTime = 0;
+            return;
+        }
+        RecoveryTime += Time.fixedDeltaTime;
+        if (RecoveryTime > 3)
+            stamina += 0.2f;
     }
 
 	void Attack()
