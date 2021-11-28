@@ -18,7 +18,7 @@ public class StageClear : MonoBehaviour
     {
         if(isPlayer && Input.GetKeyDown(KeyCode.E))
         {
-            // StageControl.Instance.StageClear(CurrentStage);
+            StageControl.Instance.StageClear(CurrentStage);
             SceneManager.LoadScene("Lobby");
             
         }

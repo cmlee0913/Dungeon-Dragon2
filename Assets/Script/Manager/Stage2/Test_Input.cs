@@ -14,12 +14,9 @@ public class Test_Input : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Space))
-        {
-            trapManager.SettingTrap();
-        }
+       
 
-        if(Input.GetKeyDown(KeyCode.E))
+        if(Input.GetKeyDown(KeyCode.W))
         {
             trapManager.SettingGlass();
         }

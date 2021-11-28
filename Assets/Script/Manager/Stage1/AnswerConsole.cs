@@ -16,7 +16,7 @@ public class AnswerConsole : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(isPlayer && Input.GetKeyDown(KeyCode.E))
+        if(isPlayer && Input.GetKeyDown(KeyCode.Space))
         {
             patternManager.TakeAnswerPuzzle(patternManager.CheckPuzzleAnswer());
         }

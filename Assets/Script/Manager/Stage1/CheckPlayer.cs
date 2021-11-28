@@ -16,7 +16,7 @@ public class CheckPlayer : MonoBehaviour
     }
 
     void Update() {
-        if (isPlayer && Input.GetKeyDown(KeyCode.E) && (cHAR_Item.itemCount > 0)) {
+        if (isPlayer && Input.GetKeyDown(KeyCode.Space) && (cHAR_Item.itemCount > 0)) {
             OnActive();
         }
     }
