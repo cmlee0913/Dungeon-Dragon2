@@ -774,10 +774,10 @@ GameObject:
   - component: {fileID: 2886672661199670669}
   - component: {fileID: 4905777340660763253}
   - component: {fileID: 958871180685763395}
-  - component: {fileID: 5532614771721227613}
   - component: {fileID: 1941269038142690689}
   - component: {fileID: 6133414468928705325}
   - component: {fileID: 614152995}
+  - component: {fileID: 3490179312241111657}
   m_Layer: 0
   m_Name: monster2
   m_TagString: Untagged
@@ -852,28 +852,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waitBaseTime: 2
-  walkRange: 10
+  walkRange: 5
   basePosition: {x: 0, y: 0, z: 0}
   dropItemPrefab:
   - {fileID: 9017368577202278090, guid: e90e70b4d28252e41b1fe3d768d94cbf, type: 3}
   - {fileID: 8889290525343262302, guid: b2824f293f4f11e4eba74504b080e546, type: 3}
   deathSeClip: {fileID: 0}
---- !u!114 &5532614771721227613
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2560320364798146561}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c7f3e93e38eac024d886dc650a5a5d8f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  arrived: 0
-  destination: {x: 0, y: 0, z: 0}
-  walkSpeed: 3
-  rotationSpeed: 240
 --- !u!114 &1941269038142690689
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -918,6 +902,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a9c4fe7f94d06649a713a000d5c6875, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &3490179312241111657
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2560320364798146561}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7f3e93e38eac024d886dc650a5a5d8f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  arrived: 0
+  destination: {x: 0, y: 0, z: 0}
+  walkSpeed: 6
+  rotationSpeed: 360
 --- !u!1 &2914529356143220336
 GameObject:
   m_ObjectHideFlags: 0
@@ -1211,7 +1211,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da73dae3c438c1a4a87048895f1eb9d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  roooot: {fileID: 0}
 --- !u!1 &4406444179512005499
 GameObject:
   m_ObjectHideFlags: 0

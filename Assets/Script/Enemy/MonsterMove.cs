@@ -8,7 +8,7 @@ public class MonsterMove : MonoBehaviour
 	// 중력값.
 	const float GravityPower = 9.8f;
 	//　목적지에 도착했다고 보는 정지 거리.
-	const float StoppingDistance = 0.06f;
+	const float StoppingDistance = 0.006f;
 
 	// 현재 이동 속도.
 	Vector3 velocity = Vector3.zero;
