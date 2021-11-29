@@ -38,7 +38,7 @@ public class Stage4Object : MonoBehaviour
     {
         status = FindObjectOfType<CHAR_CharacterStatus>();
         obj_status = GetComponent<CharacterStatus>();
-        pos = new Vector3(transform.position.x, 0.47f, transform.position.z);
+        pos = new Vector3(transform.position.x, 0.67f, transform.position.z);
     }
 
     // Update is called once per frame
