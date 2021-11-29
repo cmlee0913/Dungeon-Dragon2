@@ -19,7 +19,8 @@ public class Stage3Manager : MonoBehaviour
         }
     }
 
-    public GameObject prefab_poison;
+    CHAR_CharacterStatus status;
+
     public GameObject prefab_arrow;
 
     public int count = 5;
@@ -31,10 +32,13 @@ public class Stage3Manager : MonoBehaviour
     public GameObject respawn_range;
     private BoxCollider range_coll;
 
+    public bool is_poison = false;
+
     // Start is called before the first frame update
     void Start()
     {
         range_coll = respawn_range.GetComponent<BoxCollider>();
+        status = FindObjectOfType<CHAR_CharacterStatus>();
 
         for (int i = 0; i < count; i++)
         {
@@ -54,29 +58,20 @@ public class Stage3Manager : MonoBehaviour
             timer = 0;
         }
 
-        if(Input.GetKeyDown(KeyCode.Z))
-        {
-            CreatePoison();
-        }
-        else if(Input.GetKeyDown(KeyCode.X))
-        {
-            RemovePoison();
-        }
-
         if(StageControl.Instance.CheckStageClear(3))
         {
             SceneManager.LoadScene("Lobby");
         }
+
+        Poison();
     }
 
-    public void CreatePoison()
+    public void Poison()
     {
-        prefab_poison.SetActive(true);
-    }
-
-    public void RemovePoison()
-    {
-        prefab_poison.SetActive(false);
+        if(is_poison)
+        {
+            status.HP -= 1;
+        }
     }
 
     public void RespawnArrow()
