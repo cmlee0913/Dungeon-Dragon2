@@ -5,6 +5,7 @@ using UnityEngine;
 public class Stage4Object : MonoBehaviour
 {
     CHAR_CharacterStatus status;
+    CharacterStatus obj_status;
 
     public static bool stage4_object_check = false;
 
@@ -14,11 +15,13 @@ public class Stage4Object : MonoBehaviour
 
     public float speed = 0.1f;
     private float timer = 0;
-    public float reflect_time = 20f;
+    public float reflect_time = 10f;
 
-    public float reflect_damage_time = 10f;
+    public float reflect_damage_time = 3f;
+    private float reflect_timer = 0;
 
     public bool is_active = false;
+    public bool is_reflect = false;
 
     enum State
     {
@@ -33,7 +36,8 @@ public class Stage4Object : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        status = GetComponent<CHAR_CharacterStatus>();
+        status = FindObjectOfType<CHAR_CharacterStatus>();
+        obj_status = GetComponent<CharacterStatus>();
         pos = new Vector3(transform.position.x, 0.47f, transform.position.z);
     }
 
@@ -74,11 +78,21 @@ public class Stage4Object : MonoBehaviour
         {
             timer += Time.deltaTime;
         }
-
-        if(timer >= reflect_time && is_active)
+        if (is_reflect)
         {
-            Reflect();
+            reflect_timer += Time.deltaTime;
+        }
+
+
+        if(timer >= reflect_time)
+        {
+            is_reflect = true;
+        }
+        if(reflect_timer >= reflect_damage_time)
+        {
+            is_reflect = false;
             timer = 0;
+            reflect_timer = 0;
         }
     }
 
@@ -101,7 +115,17 @@ public class Stage4Object : MonoBehaviour
     {
         if (is_active)
         {
-            status.HP -= attackInfo.attackPower;
+            if (is_reflect)
+            {
+                status.HP -= obj_status.Power;
+
+                // ¿Ã∆Â∆Æ √ﬂ∞°
+            }
+            else
+            {
+                obj_status.HP -= attackInfo.attackPower;
+            }
+
             if (status.HP <= 0)
             {
                 status.HP = 0;
@@ -115,13 +139,6 @@ public class Stage4Object : MonoBehaviour
         is_active = true;
 
         transform.position = Vector3.MoveTowards(transform.position, pos, speed);
-    }
-
-    private void Reflect()
-    {
-        GameObject effect = Instantiate(reflect_effect, transform.position, Quaternion.identity) as GameObject;
-        effect.transform.position = new Vector3(transform.position.x, 0.44f, transform.position.z);
-        Destroy(effect, reflect_time);
     }
 
     private void Break()

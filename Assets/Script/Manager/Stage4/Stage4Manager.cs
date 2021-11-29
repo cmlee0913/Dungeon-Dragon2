@@ -41,7 +41,6 @@ public class Stage4Manager : MonoBehaviour
         if(monster_list.Count == 0)
         {
             Stage4Object.stage4_object_check = true;
-            Stage4TestPillar.stage4_pillar_check = true;
         }
 
         if(StageControl.Instance.CheckStageClear(4))

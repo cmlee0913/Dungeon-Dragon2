@@ -5,6 +5,7 @@ using UnityEngine;
 public class Poison : MonoBehaviour
 {
     private float timer = 0;
+    public float time = 2;
 
     // Start is called before the first frame update
     void Start()
@@ -17,7 +18,7 @@ public class Poison : MonoBehaviour
     {
         timer += Time.deltaTime;
 
-        if(timer >= 2)
+        if(timer >= time)
         {
             Stage3Manager.instance.is_poison = true;
 

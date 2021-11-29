@@ -33,6 +33,7 @@ public class Stage3Manager : MonoBehaviour
     private BoxCollider range_coll;
 
     public bool is_poison = false;
+    public bool is_cure = false;
 
     // Start is called before the first frame update
     void Start()
@@ -68,7 +69,7 @@ public class Stage3Manager : MonoBehaviour
 
     public void Poison()
     {
-        if(is_poison)
+        if(is_poison && !is_cure)
         {
             status.HP -= 1;
         }

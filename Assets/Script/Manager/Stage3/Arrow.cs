@@ -10,11 +10,15 @@ public class Arrow : MonoBehaviour
 
     Vector3 target_pos;
 
+    CHAR_CharacterStatus status;
+
     // Start is called before the first frame update
     void Start()
     {
         target = GameObject.FindGameObjectWithTag("Player").transform;
         target_pos = target.position;
+
+        status = FindObjectOfType<CHAR_CharacterStatus>();
 
         Vector3 vector = target.position - transform.position;
         vector.Normalize();
@@ -31,12 +35,18 @@ public class Arrow : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.tag == "Ground")
+        if(other.tag == "Player")
         {
+            status.HP -= 15;
+
             ObjectPool.instance.PerfabQueue.Enqueue(this.gameObject);
             this.gameObject.SetActive(false);
         }
-        else if(other.tag == "Player")
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if(other.tag == "Ground")
         {
             ObjectPool.instance.PerfabQueue.Enqueue(this.gameObject);
             this.gameObject.SetActive(false);

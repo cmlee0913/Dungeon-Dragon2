@@ -58,3 +58,13 @@ C# parse time         : 568ms
 candidates check time : 56ms
 console write time    : 1ms
 
+[api-updater (non-obsolete-error-filter)] 2021-11-29 PM 7:58:16 : Starting C:/KDB/2020.3.7f1/Editor/Data/Tools/ScriptUpdater/APIUpdater.NonObsoleteApiUpdaterDetector.exe
+[api-updater (non-obsolete-error-filter)] 
+----------------------------------
+jit/startup time      : 406.0232ms
+moved types parse time: 114ms
+candidates parse time : 1ms
+C# parse time         : 544ms
+candidates check time : 60ms
+console write time    : 1ms
+
