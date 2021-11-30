@@ -959,11 +959,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 4b1205a7235860c479fc94aefe26ebf1, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.26
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 4b1205a7235860c479fc94aefe26ebf1, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.99
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 4b1205a7235860c479fc94aefe26ebf1, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1017,6 +1017,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.48679993, y: 0.7238, z: 0.5361001}
   m_Center: {x: -0.029200032, y: 0.0020999908, z: 0.26805004}
+--- !u!114 &874949839
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 874949837}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 864f9774e1035344eb29cabdeaadefa5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &933875992
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1320,6 +1332,10 @@ PrefabInstance:
     - target: {fileID: 1254084267240193162, guid: edacb6fe600900b4e8c4757aad15084c, type: 3}
       propertyPath: m_TagString
       value: Monster
+      objectReference: {fileID: 0}
+    - target: {fileID: 1254084267240193166, guid: edacb6fe600900b4e8c4757aad15084c, type: 3}
+      propertyPath: dropItemPrefab.Array.size
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8143845612150942771, guid: edacb6fe600900b4e8c4757aad15084c, type: 3}
       propertyPath: m_RootOrder
