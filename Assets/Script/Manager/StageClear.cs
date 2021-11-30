@@ -16,7 +16,7 @@ public class StageClear : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(isPlayer && Input.GetKeyDown(KeyCode.E))
+        if(isPlayer && Input.GetKeyDown(KeyCode.Space))
         {
             StageControl.Instance.StageClear(CurrentStage);
             SceneManager.LoadScene("Lobby");

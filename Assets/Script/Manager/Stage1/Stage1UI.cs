@@ -1,12 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Stage1UI : MonoBehaviour
 {
     public GameObject Player;
 
     public GameObject TileBuffedUI;
+
+    public Text BuffedText;
 
     public int itemCount;
     // Start is called before the first frame update
@@ -28,5 +31,11 @@ public class Stage1UI : MonoBehaviour
         {
             TileBuffedUI.SetActive(false);
         }
+
+        if(itemCount == 1)
+            BuffedText.text = "Tile Buffed";
+        if (itemCount > 1)
+            BuffedText.text = "Tile Buffed x " + itemCount.ToString();
+        
     }
 }

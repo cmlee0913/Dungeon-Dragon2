@@ -6,9 +6,11 @@ public class AnswerConsole : MonoBehaviour
 {
     public Stage1Pattern patternManager;
     public bool isPlayer;
+    public GameObject Player;
     // Start is called before the first frame update
     void Start()
     {
+        Player = GameObject.FindWithTag("Player");
         isPlayer = false;
         
     }
@@ -19,6 +21,7 @@ public class AnswerConsole : MonoBehaviour
         if(isPlayer && Input.GetKeyDown(KeyCode.Space))
         {
             patternManager.TakeAnswerPuzzle(patternManager.CheckPuzzleAnswer());
+            Player.GetComponent<CHAR_CharacterStatus>().HP = Player.GetComponent<CHAR_CharacterStatus>().MaxHP;
         }
 
         if(Input.GetKeyDown(KeyCode.R)) // µð¹ö±ë¿ë

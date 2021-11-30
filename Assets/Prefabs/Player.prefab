@@ -149,6 +149,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8deb70a6da0440e4ea5571120edb565a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  CoolTime: 0
+  value: 0
+  CoolTimePanel: {fileID: 6251454359013112261}
+  CoolTimeText: {fileID: 1600850030247436596}
 --- !u!1 &378801558502313784
 GameObject:
   m_ObjectHideFlags: 0
@@ -307,9 +311,9 @@ MonoBehaviour:
   Skill1: {fileID: 6896024136960013049}
   Skill2: {fileID: 5998142553715171908}
   Skill3: {fileID: 8129436061187718116}
-  Skill1_CoolTime_UI: {fileID: 0}
-  Skill2_CoolTime_UI: {fileID: 0}
-  Skill3_CoolTime_UI: {fileID: 0}
+  Skill1_CoolTime_UI: {fileID: 7664991254603767512}
+  Skill2_CoolTime_UI: {fileID: 273628320687988787}
+  Skill3_CoolTime_UI: {fileID: 4095913115677991663}
 --- !u!1 &2514113796096131250
 GameObject:
   m_ObjectHideFlags: 0
@@ -510,6 +514,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8deb70a6da0440e4ea5571120edb565a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  CoolTime: 0
+  value: 0
+  CoolTimePanel: {fileID: 516205996288343582}
+  CoolTimeText: {fileID: 1416700802338999431}
 --- !u!1 &4515340061466392466
 GameObject:
   m_ObjectHideFlags: 0
@@ -1750,6 +1758,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8deb70a6da0440e4ea5571120edb565a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  CoolTime: 0
+  value: 0
+  CoolTimePanel: {fileID: 5465738851848290754}
+  CoolTimeText: {fileID: 7036788957846458067}
 --- !u!1 &8129436061187718116
 GameObject:
   m_ObjectHideFlags: 0
