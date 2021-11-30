@@ -12,6 +12,8 @@ TagManager:
   - Item
   - Boss
   - DiePlayer
+  - Sword
+  - Pillar
   layers:
   - Default
   - TransparentFX

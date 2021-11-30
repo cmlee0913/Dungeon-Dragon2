@@ -23,6 +23,8 @@ public class Stage4Object : MonoBehaviour
     public bool is_active = false;
     public bool is_reflect = false;
 
+    public int number = 0;
+
     enum State
     {
         Ready,
@@ -126,9 +128,9 @@ public class Stage4Object : MonoBehaviour
                 obj_status.HP -= attackInfo.attackPower;
             }
 
-            if (status.HP <= 0)
+            if (obj_status.HP <= 0)
             {
-                status.HP = 0;
+                obj_status.HP = 0;
                 ChangeState(State.Breaked);
             }
         }
@@ -143,6 +145,7 @@ public class Stage4Object : MonoBehaviour
 
     private void Break()
     {
+        Stage4Manager.instance.InputPillarNumber(this.number);
         Destroy(this.gameObject);
     }
 }
