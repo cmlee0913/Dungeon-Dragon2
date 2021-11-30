@@ -10254,6 +10254,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 264288766, guid: 79fee82a472048a4aa382b4df34ca2ca, type: 3}
+      propertyPath: hitEffect
+      value: 
+      objectReference: {fileID: 1845955007268882, guid: 67a684e320da6e7439421a07e3fa265c, type: 3}
     - target: {fileID: 8440852176046636965, guid: 79fee82a472048a4aa382b4df34ca2ca, type: 3}
       propertyPath: m_RootOrder
       value: 10
@@ -10306,6 +10310,10 @@ PrefabInstance:
       propertyPath: WalkSound
       value: 
       objectReference: {fileID: 107757043}
+    - target: {fileID: 8443521587879758682, guid: 79fee82a472048a4aa382b4df34ca2ca, type: 3}
+      propertyPath: hitEffect
+      value: 
+      objectReference: {fileID: 1845955007268882, guid: 67a684e320da6e7439421a07e3fa265c, type: 3}
     - target: {fileID: 8443521587879758682, guid: 79fee82a472048a4aa382b4df34ca2ca, type: 3}
       propertyPath: AttackSound
       value: 
