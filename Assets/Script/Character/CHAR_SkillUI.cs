@@ -8,15 +8,15 @@ public class CHAR_SkillUI : MonoBehaviour
     public GameObject Skill2;
     public GameObject Skill3;
 
-    public GameObject Skill1_CoolTime_UI; //ÄðÅ¸ÀÓ UI
+    public GameObject Skill1_CoolTime_UI; //ï¿½ï¿½Å¸ï¿½ï¿½ UI
     public GameObject Skill2_CoolTime_UI;
     public GameObject Skill3_CoolTime_UI;
 
-    public bool Skill1_able; // »ç¿ë°¡´É ÆÇº°º¯¼ö
+    public bool Skill1_able; // ï¿½ï¿½ë°¡ï¿½ï¿½ ï¿½Çºï¿½ï¿½ï¿½ï¿½ï¿½
     public bool Skill2_able;
     public bool Skill3_able;
 
-    float Skill1_CoolTime; // ÄðÅ¸ÀÓ º¯¼ö
+    float Skill1_CoolTime; // ï¿½ï¿½Å¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
     float Skill2_CoolTime;
     float Skill3_CoolTime;
 

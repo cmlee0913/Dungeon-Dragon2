@@ -34,7 +34,8 @@ public class AttackArea : MonoBehaviour {
 	{
 		Debug.Log("들어갔다");
 		other.SendMessage("Damage",GetAttackInfo());
-		Debug.Log("보내졌다");
+
+        Debug.Log("보내졌다");
 		status.lastAttackTarget = other.transform.root.gameObject;
 	}
 	
