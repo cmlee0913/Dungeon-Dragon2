@@ -1,35 +1,35 @@
 using UnityEngine;
 using System.Collections;
 
-// Ä³¸¯ÅÍ¸¦ ÀÌµ¿½ÃÅ²´Ù.
+// Ä³ï¿½ï¿½ï¿½Í¸ï¿½ ï¿½Ìµï¿½ï¿½ï¿½Å²ï¿½ï¿½.
 
 public class MonsterMove : MonoBehaviour
 {
-	// Áß·Â°ª.
+	// ï¿½ß·Â°ï¿½.
 	const float GravityPower = 9.8f;
-	//¡¡¸ñÀûÁö¿¡ µµÂøÇß´Ù°í º¸´Â Á¤Áö °Å¸®.
+	//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ß´Ù°ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Å¸ï¿½.
 	const float StoppingDistance = 0.006f;
 
-	// ÇöÀç ÀÌµ¿ ¼Óµµ.
+	// ï¿½ï¿½ï¿½ï¿½ ï¿½Ìµï¿½ ï¿½Óµï¿½.
 	Vector3 velocity = Vector3.zero;
-	// Ä³¸¯ÅÍ ÄÁÆ®·Ñ·¯ÀÇ Ä³½Ã.
+	// Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Æ®ï¿½Ñ·ï¿½ï¿½ï¿½ Ä³ï¿½ï¿½.
 	CharacterController characterController;
-	// µµÂøÇß´Â°¡(µµÂøÇß´Ù true / µµÂøÇÏÁö ¾Ê¾Ò´Ù false).
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ß´Â°ï¿½(ï¿½ï¿½ï¿½ï¿½ï¿½ß´ï¿½ true / ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê¾Ò´ï¿½ false).
 	public bool arrived = false;
 
-	// ¹æÇâÀ» °­Á¦·Î Áö½ÃÇÏ´Â°¡.
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´Â°ï¿½.
 	bool forceRotate = false;
 
-	// °­Á¦·Î ÇâÇÏ°Ô ÇÏ°í ½ÍÀº ¹æÇâ.
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ï°ï¿½ ï¿½Ï°ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
 	Vector3 forceRotateDirection;
 
-	// ¸ñÀûÁö.
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½.
 	public Vector3 destination;
 
-	// ÀÌµ¿ ¼Óµµ.
+	// ï¿½Ìµï¿½ ï¿½Óµï¿½.
 	public float walkSpeed = 6.0f;
 
-	// È¸Àü ¼Óµµ.
+	// È¸ï¿½ï¿½ ï¿½Óµï¿½.
 	public float rotationSpeed = 360.0f;
 
 
@@ -45,91 +45,91 @@ public class MonsterMove : MonoBehaviour
 	void Update()
 	{
 
-		// ÀÌµ¿ ¼Óµµ velocity¸¦ °»½ÅÇÑ´Ù.
+		// ï¿½Ìµï¿½ ï¿½Óµï¿½ velocityï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.
 		if (characterController.isGrounded)
 		{
-			// ¼öÆò¸é¿¡¼­ ÀÌµ¿À» °í·ÁÇÏ¹Ç·Î XZ¸¸ ´Ù·é´Ù.
+			// ï¿½ï¿½ï¿½ï¿½é¿¡ï¿½ï¿½ ï¿½Ìµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ï¹Ç·ï¿½ XZï¿½ï¿½ ï¿½Ù·ï¿½ï¿½.
 			Vector3 destinationXZ = destination;
-			// ¸ñÀûÁö¿Í ÇöÀç À§Ä¡ ³ôÀÌ¸¦ ¶È°°ÀÌ ÇÑ´Ù.
+			// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½Ì¸ï¿½ ï¿½È°ï¿½ï¿½ï¿½ ï¿½Ñ´ï¿½.
 			destinationXZ.y = transform.position.y;
 
-			//********* ¿©±â¼­ºÎÅÍ XZ¸¸À¸·Î »ý°¢ÇÑ´Ù. ********
-			// ¸ñÀûÁö±îÁö °Å¸®¿Í ¹æÇâÀ» ±¸ÇÑ´Ù.
+			//********* ï¿½ï¿½ï¿½â¼­ï¿½ï¿½ï¿½ï¿½ XZï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½. ********
+			// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Å¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ñ´ï¿½.
 			Vector3 direction = (destinationXZ - transform.position).normalized;
 			float distance = Vector3.Distance(transform.position, destinationXZ);
 
-			// ÇöÀç ¼Óµµ¸¦ º¸°üÇÑ´Ù.
+			// ï¿½ï¿½ï¿½ï¿½ ï¿½Óµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.
 			Vector3 currentVelocity = velocity;
 
-			//¡¡¸ñÀûÁö¿¡ °¡±îÀÌ ¿ÔÀ¸¸é µµÂø.
+			//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
 			if (distance < StoppingDistance)
 			{
 				arrived = true;
-				//Debug.Log($"À§Ä¡ °Å¸®°ª:{distance }");
+				//Debug.Log($"ï¿½ï¿½Ä¡ ï¿½Å¸ï¿½ï¿½ï¿½:{distance }");
 			}
 
 
-			// ÀÌµ¿ ¼Óµµ¸¦ ±¸ÇÑ´Ù.
+			// ï¿½Ìµï¿½ ï¿½Óµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ñ´ï¿½.
 			if (arrived)
 				velocity = Vector3.zero;
 			else
 				velocity = direction * walkSpeed;
 
 
-			// ºÎµå·´°Ô º¸°£ Ã³¸®.
+			// ï¿½Îµå·´ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½.
 			velocity = Vector3.Lerp(currentVelocity, velocity, Mathf.Min(Time.deltaTime * 5.0f, 1.0f));
 			velocity.y = 0;
 
 
 			if (!forceRotate)
 			{
-				// ¹Ù²Ù°í ½ÍÀº ¹æÇâÀ¸·Î º¯°æÇÑ´Ù. 
+				// ï¿½Ù²Ù°ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½. 
 				if (velocity.magnitude > 0.1f && !arrived)
 				{
-					// ÀÌµ¿ÇÏÁö ¾Ê¾Ò´Ù¸é ¹æÇâÀº º¯°æÇÏÁö ¾Ê´Â´Ù.
+					// ï¿½Ìµï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê¾Ò´Ù¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê´Â´ï¿½.
 					Quaternion characterTargetRotation = Quaternion.LookRotation(direction);
 					transform.rotation = Quaternion.RotateTowards(transform.rotation, characterTargetRotation, rotationSpeed * Time.deltaTime);
 				}
 			}
 			else
 			{
-				// °­Á¦·Î ¹æÇâÀ» ÁöÁ¤ÇÑ´Ù.
+				// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.
 				Quaternion characterTargetRotation = Quaternion.LookRotation(forceRotateDirection);
 				transform.rotation = Quaternion.RotateTowards(transform.rotation, characterTargetRotation, rotationSpeed * Time.deltaTime);
 			}
 
 		}
 
-		// Áß·Â.
+		// ï¿½ß·ï¿½.
 		velocity += Vector3.down * GravityPower * Time.deltaTime;
 
-		// ¶¥¿¡ ´ê¾Æ ÀÖ´Ù¸é Áö¸éÀ» ²Ë ´©¸¥´Ù.
-		// (À¯´ÏÆ¼ÀÇ CharactorController Æ¯¼º ¶§¹®¿¡).
+		// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½Ö´Ù¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½.
+		// (ï¿½ï¿½ï¿½ï¿½Æ¼ï¿½ï¿½ CharactorController Æ¯ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½).
 		Vector3 snapGround = Vector3.zero;
 		if (characterController.isGrounded)
 			snapGround = Vector3.down;
 
-		// CharacterController¸¦ »ç¿ëÇØ¼­ ¿òÁ÷ÀÎ´Ù.
+		// CharacterControllerï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ø¼ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Î´ï¿½.
 		characterController.Move(velocity * Time.deltaTime + snapGround);
 
 		if (characterController.velocity.magnitude < 0.1f)
 			arrived = true;
 
-		// °­Á¦·Î ¹æÇâ º¯°æÀ» ÇØÁ¦ÇÑ´Ù.
+		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.
 		if (forceRotate && Vector3.Dot(transform.forward, forceRotateDirection) > 0.99f)
 			forceRotate = false;
 
 
 	}
 
-	// ¸ñÀûÁö¸¦ ¼³Á¤ÇÑ´Ù. ÀÎ¼ö destinationÀº ¸ñÀûÁö.
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½. ï¿½Î¼ï¿½ destinationï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½.
 	public void SetDestination(Vector3 destination)
 	{
 		arrived = false;
 		this.destination = destination;
 	}
 
-	// ÁöÁ¤ÇÑ ¹æÇâÀ¸·Î ÇâÇÑ´Ù.
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ñ´ï¿½.
 	public void SetDirection(Vector3 direction)
 	{
 		forceRotateDirection = direction;
@@ -138,14 +138,14 @@ public class MonsterMove : MonoBehaviour
 		forceRotate = true;
 	}
 
-	// ÀÌµ¿À» ±×¸¸µÐ´Ù.
+	// ï¿½Ìµï¿½ï¿½ï¿½ ï¿½×¸ï¿½ï¿½Ð´ï¿½.
 	public void StopMove()
 	{
-		// ÇöÀç ÁöÁ¡À» ¸ñÀûÁö·Î ÇÑ´Ù.
+		// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ñ´ï¿½.
 		destination = transform.position;
 	}
 
-	// ¸ñÀûÁö¿¡ µµÂøÇß´ÂÁö Á¶»çÇÑ´Ù(µµÂøÇß´Ù true / µµÂøÇÏÁö ¾Ê¾Ò´Ù false).
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ß´ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½(ï¿½ï¿½ï¿½ï¿½ï¿½ß´ï¿½ true / ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê¾Ò´ï¿½ false).
 	public bool Arrived()
 	{
 		return arrived;

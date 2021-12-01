@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class MonsterCtrl : MonoBehaviour
 {
@@ -20,6 +21,10 @@ public class MonsterCtrl : MonoBehaviour
 	// ������ �������� ������ �� �ִ� �迭�� �Ѵ�.
 	public GameObject[] dropItemPrefab;
 
+    public float StartHealth;
+    public float Health;
+
+    public GameObject HealthBar;
 	// ������Ʈ ����.
 	enum State
 	{
@@ -202,6 +207,8 @@ public class MonsterCtrl : MonoBehaviour
 		//Destroy(effect, 0.3f);
 
 		status.HP -= attackInfo.attackPower;
+        Health -= 10;
+        HealthBar.GetComponent<Image>().fillAmount = Health / StartHealth;
 		if (status.HP <= 0)
 		{
 			status.HP = 0;

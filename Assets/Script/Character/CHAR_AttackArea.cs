@@ -41,7 +41,6 @@ public class CHAR_AttackArea : MonoBehaviour
 		// 공격 당한 상대의 Damage 메시지를 보낸다.
 		Debug.Log("들어갔다");
 		other.SendMessage("Damage",GetAttackInfo());
-        EnemyHpBar.health -= 10f;
 
         Debug.Log("보내졌다");
 		status.lastAttackTarget = other.transform.root.gameObject;
