@@ -25,6 +25,7 @@ public class Stage3Manager : MonoBehaviour
 
     public int count = 5;
     private float timer = 0;
+    float heal_timer = 0;
 
     public GameObject item_box;
     private int item_count = 0;
@@ -68,10 +69,25 @@ public class Stage3Manager : MonoBehaviour
     }
 
     public void Poison()
-    {
-        if(is_poison && !is_cure)
+    { 
+        if (is_poison && !is_cure)
         {
             status.HP -= 1;
+        }
+        
+        if (is_cure)
+        {
+            heal_timer += Time.deltaTime;
+
+            if (heal_timer >= 3)
+            {
+                status.HP += 1;
+                if(status.HP >= status.MaxHP)
+                {
+                    status.HP = status.MaxHP;
+                }
+                heal_timer = 0;
+            }
         }
     }
 
