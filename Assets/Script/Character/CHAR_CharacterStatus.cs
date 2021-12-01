@@ -43,7 +43,7 @@ public class CHAR_CharacterStatus : MonoBehaviour {
             cHAR_PlayerControll.playerAnimator.SetTrigger("getHit");
             HP -= attackInfo.attackPower;
         }
-        else if (HP <= attackInfo.attackPower) {
+        else if (HP <= attackInfo.attackPower || HP <= 0) {
             HP = 0;
             cHAR_PlayerControll.died = true;
             cHAR_PlayerControll.playerAnimator.SetBool("Died", cHAR_PlayerControll.died);

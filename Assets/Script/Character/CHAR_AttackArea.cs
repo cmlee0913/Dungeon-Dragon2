@@ -5,8 +5,9 @@ using UnityEngine;
 public class CHAR_AttackArea : MonoBehaviour
 {
     CHAR_CharacterStatus status;
-
+	public GameObject hitEffect;
 	public GameObject rooot;
+	
     void Start()
     {
         status = transform.root.GetComponent<CHAR_CharacterStatus>();
@@ -43,6 +44,9 @@ public class CHAR_AttackArea : MonoBehaviour
 		other.SendMessage("Damage",GetAttackInfo());
 
         Debug.Log("보내졌다");
+		GameObject effect = Instantiate(hitEffect, transform.position, Quaternion.identity) as GameObject;
+        effect.transform.localPosition = transform.position + new Vector3(0.5f, 0.5f, 0.0f);
+        Destroy(effect, 0.3f); //이펙트
 		status.lastAttackTarget = other.transform.root.gameObject;
 	}
 
