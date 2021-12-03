@@ -22,7 +22,6 @@ public class MonsterCtrl : MonoBehaviour
 	public GameObject[] dropItemPrefab;
 
     public float StartHealth;
-    public float Health;
 
     public GameObject HealthBar;
 	// ������Ʈ ����.
@@ -207,8 +206,7 @@ public class MonsterCtrl : MonoBehaviour
 		//Destroy(effect, 0.3f);
 
 		status.HP -= attackInfo.attackPower;
-        Health -= 10;
-        HealthBar.GetComponent<Image>().fillAmount = Health / StartHealth;
+        HealthBar.GetComponent<Image>().fillAmount = status.HP / StartHealth;
 		if (status.HP <= 0)
 		{
 			status.HP = 0;
