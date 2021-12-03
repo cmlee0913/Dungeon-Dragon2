@@ -314,6 +314,9 @@ MonoBehaviour:
   Skill1_CoolTime_UI: {fileID: 7664991254603767512}
   Skill2_CoolTime_UI: {fileID: 273628320687988787}
   Skill3_CoolTime_UI: {fileID: 4095913115677991663}
+  Skill1_able: 0
+  Skill2_able: 0
+  Skill3_able: 0
 --- !u!1 &2514113796096131250
 GameObject:
   m_ObjectHideFlags: 0
@@ -1540,7 +1543,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: c46d83f2b73aaa141bd5015819342d81, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 33824bfd6a3904648bc2c1227230b180, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2336,11 +2339,12 @@ MonoBehaviour:
   isDrained: 0
   playerAnimator: {fileID: 8392918508785615135}
   eulerAnglesY: 0
-  stamina: 100
   RecoveryTime: 0
   AttackSound: {fileID: 0}
   WalkSound: {fileID: 0}
   imgsFillDynamic: {fileID: 3115819852187096627}
+  cHAR_CharacterStatus: {fileID: 2233571589885165291}
+  cHAR_SkillUI: {fileID: 5920068224774629472}
 --- !u!114 &697920703
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2381,6 +2385,7 @@ MonoBehaviour:
   cHAR_PlayerControll: {fileID: 8443521587879758682}
   HP: 100
   MaxHP: 100
+  stamina: 100
   Power: 10
   lastAttackTarget: {fileID: 0}
   characterName: Player
@@ -4258,6 +4263,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7edd8ee25a793164a970b12d94b61c71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hitEffect: {fileID: 1845955007268882, guid: 67a684e320da6e7439421a07e3fa265c, type: 3}
   rooot: {fileID: 0}
 --- !u!54 &343561669
 Rigidbody:

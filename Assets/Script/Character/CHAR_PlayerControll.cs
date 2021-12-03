@@ -15,14 +15,14 @@ public class CHAR_PlayerControll : MonoBehaviour
     public bool died = false;
     public bool isDrained = false;
     public Animator playerAnimator;
-    public float eulerAnglesY;
-    public float stamina = 100f; 
+    public float eulerAnglesY; 
     public float RecoveryTime = 0;
 
     public AudioSource AttackSound;
     public AudioSource WalkSound;
     public ImgsFillDynamic imgsFillDynamic;
-    CHAR_CharacterStatus cHAR_CharacterStatus;
+    public CHAR_CharacterStatus cHAR_CharacterStatus;
+    public CHAR_SkillUI cHAR_SkillUI;
 
     void Awake() {
         cHAR_CharacterStatus = GetComponent<CHAR_CharacterStatus>();
@@ -35,11 +35,12 @@ public class CHAR_PlayerControll : MonoBehaviour
     }
 
     void Update() {
-        imgsFillDynamic.SetValue(stamina / 100, false, 4F);
+        imgsFillDynamic.SetValue(cHAR_CharacterStatus.stamina / 100, false, 4F);
         AnimatorUpdate();
         SpeedControll();
         Attack();
         playerSound();
+        SkillQ();
     }
 
     void FixedUpdate() {
@@ -55,9 +56,9 @@ public class CHAR_PlayerControll : MonoBehaviour
 
         if (!died) {
             if (vertical != 0) {
-                if (Input.GetKey(KeyCode.LeftShift) && stamina > 0) {
+                if (Input.GetKey(KeyCode.LeftShift) && cHAR_CharacterStatus.stamina > 0) {
                 RecoveryTime = 0;
-                stamina -= 0.4f;
+                cHAR_CharacterStatus.stamina -= 0.4f;
                 if (4.8f <= speed && speed < 8f)
                     speed += 0.2f;
                 if (speed < 5f)
@@ -69,7 +70,7 @@ public class CHAR_PlayerControll : MonoBehaviour
                     speed = 0;
                 }
 
-                else if (!Input.GetKey(KeyCode.LeftShift) || stamina <= 0) {
+                else if (!Input.GetKey(KeyCode.LeftShift) || cHAR_CharacterStatus.stamina <= 0) {
                 Recovery();
                 if (speed < 5f)
                     if (vertical != 0)
@@ -133,22 +134,22 @@ public class CHAR_PlayerControll : MonoBehaviour
     }
 
     void Stamina() {
-        if (stamina <= 0) {
-            stamina = 0;
+        if (cHAR_CharacterStatus.stamina <= 0) {
+            cHAR_CharacterStatus.stamina = 0;
         }
-        if (stamina >= 100) {
-            stamina = 100;
+        if (cHAR_CharacterStatus.stamina >= 100) {
+            cHAR_CharacterStatus.stamina = 100;
         }
     }
     
     void Recovery() {
-        if (stamina >= 100) {
+        if (cHAR_CharacterStatus.stamina >= 100) {
             RecoveryTime = 0;
             return;
         }
         RecoveryTime += Time.fixedDeltaTime;
         if (RecoveryTime > 2)
-            stamina += 0.6f;
+            cHAR_CharacterStatus.stamina += 0.6f;
     }
 
 	void Attack()
@@ -168,7 +169,7 @@ public class CHAR_PlayerControll : MonoBehaviour
     void AnimatorUpdate() {
         playerAnimator.SetBool("isMove", isMove);
         playerAnimator.SetFloat("MoveSpeed", speed * vertical);
-        playerAnimator.SetFloat("stamina", stamina);
+        playerAnimator.SetFloat("stamina", cHAR_CharacterStatus.stamina);
     }
 
     void StartMove()
@@ -190,17 +191,24 @@ public class CHAR_PlayerControll : MonoBehaviour
     void StartPowerAttack()
 	{
 		isAttackReady = false;
-        cHAR_CharacterStatus.Power = 20;
-        stamina -= 10;
+        cHAR_CharacterStatus.Power = 50;
+        cHAR_CharacterStatus.stamina -= 10;
         RecoveryTime = 0;
 	}
 
 	void EndPowerAttack()
 	{
 		playerAnimator.SetBool("Attacking", false);
-        cHAR_CharacterStatus.Power = 10;
+        cHAR_CharacterStatus.Power = 20;
         isAttackReady = true;
 	}
+
+    void SkillQ() {
+        if (StageControl.Instance.stage1Clear && Input.GetKeyDown(KeyCode.Q) && cHAR_SkillUI.Skill1_able) {
+            Debug.Log("Skill Q");
+            cHAR_CharacterStatus.stamina = 100;
+        }
+    }
 
     IEnumerator attackSoundOn()
     {

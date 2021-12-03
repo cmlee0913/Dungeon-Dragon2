@@ -23,6 +23,7 @@ public class CHAR_HPBar : MonoBehaviour
     void PlayerHPBar()
     {
         float HP = Player.GetComponent<CHAR_CharacterStatus>().HP;
-        hpBar.fillAmount = HP / 100f;
+        float maxHP = Player.GetComponent<CHAR_CharacterStatus>().MaxHP;
+        hpBar.fillAmount = HP / maxHP;
     }
 }

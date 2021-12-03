@@ -6,6 +6,7 @@ public class SoundManager : MonoBehaviour
 {
     private static SoundManager instance = null;
 
+
     void Awake()
     {
         if (null == instance)
@@ -22,7 +23,7 @@ public class SoundManager : MonoBehaviour
         }
     }
 
-    //°ÔÀÓ ¸Å´ÏÀú ÀÎ½ºÅÏ½º¿¡ Á¢±ÙÇÒ ¼ö ÀÖ´Â ÇÁ·ÎÆÛÆ¼. staticÀÌ¹Ç·Î ´Ù¸¥ Å¬·¡½º¿¡¼­ ¸¾²¯ È£ÃâÇÒ ¼ö ÀÖ´Ù.
+    //ï¿½ï¿½ï¿½ï¿½ ï¿½Å´ï¿½ï¿½ï¿½ ï¿½Î½ï¿½ï¿½Ï½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ¼. staticï¿½Ì¹Ç·ï¿½ ï¿½Ù¸ï¿½ Å¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ È£ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Ö´ï¿½.
     public static SoundManager Instance
     {
         get

@@ -8,6 +8,8 @@ public class MonsterCtrl : MonoBehaviour
 	CharacterAnimation charaAnimation;
 	MonsterMove characterMove;
 	Transform attackTarget;
+	public EnemyGeneratorCtrl enemyGeneratorCtrl;
+	public EnemyObjectPool objectPool;
 	//public GameObject hitEffect;
 
 	// ��� �ð��� 2�ʷ� �����Ѵ�.
@@ -31,9 +33,10 @@ public class MonsterCtrl : MonoBehaviour
 		Chasing,    // ����.
 		Attacking,  // ����.
 		Died,       // ���.
-		Shooting,	
+		Shooting,
 	};
 
+	[SerializeField]
 	State state = State.Walking;        // ���� ������Ʈ.
 	State nextState = State.Walking;    // ���� ������Ʈ.
 
@@ -41,6 +44,10 @@ public class MonsterCtrl : MonoBehaviour
 	AudioSource deathSeAudio;
 
 
+	void Awake() {
+		enemyGeneratorCtrl = transform.root.gameObject.GetComponent<EnemyGeneratorCtrl>();
+		objectPool = transform.parent.gameObject.GetComponent<EnemyObjectPool>();
+	}
 	// Use this for initialization
 	void Start()
 	{
@@ -88,6 +95,7 @@ public class MonsterCtrl : MonoBehaviour
 					break;
 			}
 		}
+		HealthBar.GetComponent<Image>().fillAmount = status.HP / StartHealth;
 	}
 
 
@@ -104,77 +112,65 @@ public class MonsterCtrl : MonoBehaviour
 
 	void Walking()
 	{
-		// ��� �ð��� ���� ���Ҵٸ�.
 		if (waitTime > 0.0f)
 		{
-			// ��� �ð��� ���δ�.
 			waitTime -= Time.deltaTime;
-			// ��� �ð��� ��������.
 			if (waitTime <= 0.0f)
 			{
-				// ���� ���� ���.
 				Vector2 randomValue = Random.insideUnitCircle * walkRange;
-				// �̵��� ���� �����Ѵ�.
 				Vector3 destinationPosition = basePosition + new Vector3(randomValue.x, 0.0f, randomValue.y);
-				// �������� �����Ѵ�.
 				SendMessage("SetDestination", destinationPosition);
 			}
 		}
 		else
 		{
-			// �������� �����Ѵ�.
 			if (characterMove.Arrived())
 			{
-				// ��� ���·� ��ȯ�Ѵ�.
 				waitTime = Random.Range(waitBaseTime, waitBaseTime * 2.0f);
 				//waitTime = 2.0f;
 			}
-			// Ÿ���� �߰��ϸ� �����Ѵ�.
 			if (attackTarget)
 			{
 				ChangeState(State.Chasing);
 			}
 		}
 	}
-	// ���� ����. 
+
 	void ChaseStart()
 	{
 		StateStartCommon();
 	}
-	// ���� ��. 
+
 	void Chasing()
 	{
-		// �̵��� ���� �÷��̾ �����Ѵ�.
 		SendMessage("SetDestination", attackTarget.position);
-		// 2���� �̳��� �����ϸ� �����Ѵ�.
 		if (Vector3.Distance(attackTarget.position, transform.position) <= 2.0f)
 		{
 			ChangeState(State.Attacking);
 		}
+		// 시험 중
+		// // else if (Vector3.Distance(enemyGeneratorCtrl.gameObject.transform.position, transform.position) >= 20.0f) {
+		// // 	SendMessage("SetDestination", enemyGeneratorCtrl.gameObject.transform.position);
+		// // 	ChangeState(State.Walking);
+		// // }
 	}
 
-	// ���� ������Ʈ�� ���۵Ǳ� ���� ȣ��ȴ�.
 	void AttackStart()
 	{
 		StateStartCommon();
 		status.attacking = true;
 
-		// ���� �ִ� �������� ���ƺ���.
 		Vector3 targetDirection = (attackTarget.position - transform.position).normalized;
 		SendMessage("SetDirection", targetDirection);
 
-		// �̵��� �����.
 		SendMessage("StopMove");
 	}
 
-	// ���� �� ó��.
 	void Attacking()
 	{
 		if (charaAnimation.IsAttacked())
 			ChangeState(State.Walking);
-		// ��� �ð��� �ٽ� �����Ѵ�.
 		waitTime = Random.Range(waitBaseTime, waitBaseTime * 2.0f);
-		// Ÿ���� �����Ѵ�.
 		attackTarget = null;
 	}
 
@@ -187,16 +183,27 @@ public class MonsterCtrl : MonoBehaviour
 
 	void Died()
 	{
-		status.died = true;
+		//status.died = true;
 		dropItem();
-		Destroy(gameObject);
+		DestroyEnemy(); // Destroy(gameObject);
+
 		if (gameObject.tag == "Boss")
 		{
 			//gameRuleCtrl.GameClear();
 		}
 
-		// ����� ���.
 		AudioSource.PlayClipAtPoint(deathSeClip, transform.position);
+	}
+
+	void DestroyEnemy()
+    {
+		// 부활
+		status.HP = status.MaxHP;
+		attackTarget = null;
+		ChangeState(State.Walking);
+
+		enemyGeneratorCtrl.enemyCount--;
+		objectPool.ReturnObject(this);
 	}
 
 	public void Damage(CHAR_AttackArea.AttackInfo attackInfo)
@@ -206,22 +213,22 @@ public class MonsterCtrl : MonoBehaviour
 		//Destroy(effect, 0.3f);
 
 		status.HP -= attackInfo.attackPower;
-        HealthBar.GetComponent<Image>().fillAmount = status.HP / StartHealth;
+
+		// Update로 이동.
+		// HealthBar.GetComponent<Image>().fillAmount = status.HP / StartHealth;
 		if (status.HP <= 0)
 		{
 			status.HP = 0;
-			// ü���� 0�̹Ƿ� ��� ������Ʈ�� ��ȯ�Ѵ�.
-			ChangeState(State.Died);
+			Died();
 		}
 	}
 
-	// ������Ʈ�� ���۵Ǳ� ���� �������ͽ��� �ʱ�ȭ�Ѵ�.
 	void StateStartCommon()
 	{
 		status.attacking = false;
 		status.died = false;
 	}
-	// ���� ����� �����Ѵ�. 
+
 	public void SetAttackTarget(Transform target)
 	{
 		attackTarget = target;

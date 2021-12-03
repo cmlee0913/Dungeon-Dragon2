@@ -8,7 +8,7 @@ public class CHAR_CharacterStatus : MonoBehaviour {
     // 체력.
     public int HP = 100;
     public int MaxHP = 100;
-
+    public float stamina = 100;
     // 공격력.
     public int Power = 10;
     

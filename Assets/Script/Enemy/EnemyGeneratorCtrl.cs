@@ -7,7 +7,13 @@ public class EnemyGeneratorCtrl : MonoBehaviour {
 	// 적을 저장한다. 
 	GameObject[] existEnemys;
 	// 액티브 최대 수.
-	public int maxEnemy = 2;
+	EnemyObjectPool objectPool;
+	public int maxEnemy;
+	public int enemyCount = 0;
+
+	void Awake() {
+		objectPool = transform.GetChild(0).GetComponent<EnemyObjectPool>();
+	}
 
 	void Start()
 	{
@@ -20,22 +26,26 @@ public class EnemyGeneratorCtrl : MonoBehaviour {
 	// 적을 생성한다.
 	IEnumerator Exec()
 	{
-		while(true){ 
-			Generate();
-			yield return new WaitForSeconds( 7.0f );
+		while (true) { 
+			if (enemyCount < maxEnemy)
+				Generate();
+			yield return new WaitForSeconds( 5.0f );
 		}
 	}
 
 	void Generate()
 	{
-		for(int enemyCount = 0; enemyCount < existEnemys.Length; ++ enemyCount)
-		{
-			if( existEnemys[enemyCount] == null ){
-				// 적 생성.
-				existEnemys[enemyCount] = Instantiate(enemyPrefab,transform.position,transform.rotation) as GameObject;
-				return;
-			}
-		}
+		// for(enemyCount = 0; enemyCount < existEnemys.Length; ++ enemyCount)
+		// {
+		// 	if( existEnemys[enemyCount] == null ){
+		// 		// 적 생성.
+		// 		existEnemys[enemyCount] = EnemyObjectPool.GetObject(); //Instantiate(enemyPrefab,transform.position,transform.rotation) as GameObject;
+		// 		existEnemys[enemyCount].transform.position = transform.position;
+		// 		return;
+		// 	}
+		// }
+		objectPool.GetObject();
+		enemyCount++;
 	}
 	
 }

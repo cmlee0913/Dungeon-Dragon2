@@ -21,14 +21,24 @@ public class StageControl : MonoBehaviour
         }
     }
 
-    bool stage1Clear;
-    bool stage2Clear;
-    bool stage3Clear;
-    bool stage4Clear;
-    bool bossClear;
+    public bool stage1Clear;
+    public bool stage2Clear;
+    public bool stage3Clear;
+    public bool stage4Clear;
+    public bool bossClear;
 
     private void Awake()
     {
+        if (_instance == null)
+        {
+            _instance = this;
+        }
+
+        else if (_instance != this)
+        {
+            Destroy(gameObject);
+        }
+
         DontDestroyOnLoad(gameObject);
     }
     private void Start()
