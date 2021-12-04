@@ -318,6 +318,7 @@ MonoBehaviour:
   Skill2_able: 0
   Skill3_able: 0
   Skill2_GlassEffect: {fileID: 6716405620496210358}
+  resistTime: 15
 --- !u!1 &1641119208909284863
 GameObject:
   m_ObjectHideFlags: 0
@@ -2616,13 +2617,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5fa3e7ce487815b4c837b99e8e31f396, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  horizontal: 0
-  vertical: 0
   speed: 0
   velocity: 1
   rotateSpeed: 3
-  isMove: 0
-  fdown: 0
   isAttackReady: 1
   died: 0
   isDrained: 0
@@ -2632,7 +2629,6 @@ MonoBehaviour:
   AttackSound: {fileID: 0}
   WalkSound: {fileID: 0}
   imgsFillDynamic: {fileID: 3115819852187096627}
-  cHAR_CharacterStatus: {fileID: 2233571589885165291}
   cHAR_SkillUI: {fileID: 5920068224774629472}
 --- !u!114 &697920703
 MonoBehaviour:
@@ -2672,8 +2668,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cHAR_PlayerControll: {fileID: 8443521587879758682}
-  HP: 100
-  MaxHP: 100
+  HP: 200
+  MaxHP: 200
   stamina: 100
   Power: 10
   lastAttackTarget: {fileID: 0}

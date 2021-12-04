@@ -22,6 +22,7 @@ public class CHAR_SkillUI : MonoBehaviour
 
     public GameObject Skill2_GlassEffect;
     CHAR_CharacterStatus cHAR_CharacterStatus;
+    public float resistTime = 1.0f;
 
     void Awake() 
     {
@@ -36,7 +37,7 @@ public class CHAR_SkillUI : MonoBehaviour
 
         Skill1_CoolTime = 7.0f;
         Skill2_CoolTime = 30.0f;
-        Skill3_CoolTime = 7.0f;
+        Skill3_CoolTime = 30.0f;
     }
 
     // Update is called once per frame
@@ -48,13 +49,13 @@ public class CHAR_SkillUI : MonoBehaviour
             Skill1.SetActive(false);
         }
 
-        if (Skill2.activeSelf)
+        if (/*StageControl.Instance.CheckStageClear(2) &&*/ Skill2.activeSelf)
         {
             Skill2_able = true;
             Skill2.SetActive(false);
         }
 
-        if (StageControl.Instance.CheckStageClear(3) && Skill3.activeSelf)
+        if (/*StageControl.Instance.CheckStageClear(3) &&*/ Skill3.activeSelf)
         {
             Skill3_able = true;
             Skill3.SetActive(false);
@@ -91,6 +92,17 @@ public class CHAR_SkillUI : MonoBehaviour
             Skill3_able = true;
         }
 
+        // skill E 임시 저장
+        if (resistTime > 0.0f) {
+            resistTime -= Time.deltaTime;
+            if (Stage3Manager.instance)
+                Stage3Manager.instance.posionDamage = 1;
+        }
+        else {
+            resistTime = 0f;
+            if (Stage3Manager.instance)
+                Stage3Manager.instance.posionDamage = 2;
+        }
     }
 
     public void Active_Skill1()
@@ -109,6 +121,7 @@ public class CHAR_SkillUI : MonoBehaviour
         Skill2_CoolTime_UI.SetActive(true);
         Skill2_CoolTime_UI.GetComponent<CHAR_CoolTimeUI>().SettingCoolTime(Skill2_CoolTime);
 
+        Debug.Log("Skill W");
         Skill2_GlassEffect.SetActive(true);
 
         Skill2_GlassEffect.GetComponent<DetectingScript>().ActivaitingGlass();
@@ -120,6 +133,10 @@ public class CHAR_SkillUI : MonoBehaviour
     {
         Skill3_CoolTime_UI.SetActive(true);
         Skill3_CoolTime_UI.GetComponent<CHAR_CoolTimeUI>().SettingCoolTime(Skill3_CoolTime);
+
+        Debug.Log("Skill E");
+        resistTime = 15.0f;
+
         Skill3_able = false;
     }
 }

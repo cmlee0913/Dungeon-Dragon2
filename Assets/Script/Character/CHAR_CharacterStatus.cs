@@ -6,7 +6,7 @@ public class CHAR_CharacterStatus : MonoBehaviour {
 
     //---------- 공격 장에서 사용한다. ----------
     // 체력.
-    public int HP = 100;
+    public float HP = 100;
     public int MaxHP = 100;
     public float stamina = 100;
     // 공격력.

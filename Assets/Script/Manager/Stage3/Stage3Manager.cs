@@ -13,10 +13,10 @@ public class Stage3Manager : MonoBehaviour
         {
             instance = this;
         }
-        else
+        /*else
         {
             Destroy(this.gameObject);
-        }
+        }*/
     }
 
     CHAR_CharacterStatus status;
@@ -35,6 +35,8 @@ public class Stage3Manager : MonoBehaviour
 
     public bool is_poison = false;
     public bool is_cure = false;
+
+    public float posionDamage = 2.0f;
 
     // Start is called before the first frame update
     void Start()
@@ -72,7 +74,7 @@ public class Stage3Manager : MonoBehaviour
     { 
         if (is_poison && !is_cure)
         {
-            status.HP -= 1;
+            status.HP -= posionDamage;
         }
         
         if (is_cure)
