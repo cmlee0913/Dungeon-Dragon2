@@ -14,6 +14,7 @@ public class BGMPlayer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        GetComponent<AudioSource>().volume = SoundManager.Instance.musicVol;
+        if (SoundManager.Instance)
+            GetComponent<AudioSource>().volume = SoundManager.Instance.musicVol;
     }
 }

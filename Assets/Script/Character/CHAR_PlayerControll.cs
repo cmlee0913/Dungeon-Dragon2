@@ -4,24 +4,25 @@ using UnityEngine;
 
 public class CHAR_PlayerControll : MonoBehaviour
 {
-    public float horizontal;
-    public float vertical;
+    float horizontal;
+    float vertical;
     public float speed;
     public float velocity;
     public float rotateSpeed;
-    public bool isMove = false;
-    public bool fdown;
+    bool isMove = false;
     public bool isAttackReady = true;
     public bool died = false;
     public bool isDrained = false;
     public Animator playerAnimator;
     public float eulerAnglesY; 
     public float RecoveryTime = 0;
+    public bool s1check;
+    public bool s1ready;
 
     public AudioSource AttackSound;
     public AudioSource WalkSound;
     public ImgsFillDynamic imgsFillDynamic;
-    public CHAR_CharacterStatus cHAR_CharacterStatus;
+    CHAR_CharacterStatus cHAR_CharacterStatus;
     public CHAR_SkillUI cHAR_SkillUI;
 
     void Awake() {
@@ -35,6 +36,8 @@ public class CHAR_PlayerControll : MonoBehaviour
     }
 
     void Update() {
+        s1ready = cHAR_SkillUI.Skill1_able;
+        s1check = StageControl.Instance.stage1Clear;
         imgsFillDynamic.SetValue(cHAR_CharacterStatus.stamina / 100, false, 4F);
         AnimatorUpdate();
         SpeedControll();
@@ -159,7 +162,7 @@ public class CHAR_PlayerControll : MonoBehaviour
             playerAnimator.SetTrigger("isAttack");
 		    playerAnimator.SetBool("Attacking", true);
         }
-        else if (Input.GetKeyDown(KeyCode.S) && isAttackReady) {
+        else if (Input.GetKeyDown(KeyCode.S) && isAttackReady && StageControl.Instance.stage4Clear) {
             StartCoroutine(attackSoundOn());
             playerAnimator.SetTrigger("isPowerAttack");
 		    playerAnimator.SetBool("Attacking", true);
@@ -190,9 +193,10 @@ public class CHAR_PlayerControll : MonoBehaviour
 
     void StartPowerAttack()
 	{
+        Debug.Log ("UsePowerAttack");
 		isAttackReady = false;
         cHAR_CharacterStatus.Power = 50;
-        cHAR_CharacterStatus.stamina -= 10;
+        cHAR_CharacterStatus.stamina -= 20;
         RecoveryTime = 0;
 	}
 
@@ -204,7 +208,7 @@ public class CHAR_PlayerControll : MonoBehaviour
 	}
 
     void SkillQ() {
-        if (StageControl.Instance.stage1Clear && Input.GetKeyDown(KeyCode.Q) && cHAR_SkillUI.Skill1_able) {
+        if (s1check && Input.GetKeyDown(KeyCode.Q) && s1ready) {
             Debug.Log("Skill Q");
             cHAR_CharacterStatus.stamina = 100;
         }

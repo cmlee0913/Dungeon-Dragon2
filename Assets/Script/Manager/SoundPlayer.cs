@@ -13,6 +13,7 @@ public class SoundPlayer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        GetComponent<AudioSource>().volume = SoundManager.Instance.soundVol;
+        if (SoundManager.Instance)
+            GetComponent<AudioSource>().volume = SoundManager.Instance.soundVol;
     }
 }
