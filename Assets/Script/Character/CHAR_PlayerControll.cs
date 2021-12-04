@@ -16,8 +16,6 @@ public class CHAR_PlayerControll : MonoBehaviour
     public Animator playerAnimator;
     public float eulerAnglesY; 
     public float RecoveryTime = 0;
-    public bool s1check;
-    public bool s1ready;
 
     public AudioSource AttackSound;
     public AudioSource WalkSound;
@@ -36,14 +34,11 @@ public class CHAR_PlayerControll : MonoBehaviour
     }
 
     void Update() {
-        s1ready = cHAR_SkillUI.Skill1_able;
-        s1check = StageControl.Instance.stage1Clear;
         imgsFillDynamic.SetValue(cHAR_CharacterStatus.stamina / 100, false, 4F);
         AnimatorUpdate();
         SpeedControll();
         Attack();
         playerSound();
-        SkillQ();
     }
 
     void FixedUpdate() {
@@ -206,13 +201,6 @@ public class CHAR_PlayerControll : MonoBehaviour
         cHAR_CharacterStatus.Power = 20;
         isAttackReady = true;
 	}
-
-    void SkillQ() {
-        if (s1check && Input.GetKeyDown(KeyCode.Q) && s1ready) {
-            Debug.Log("Skill Q");
-            cHAR_CharacterStatus.stamina = 100;
-        }
-    }
 
     IEnumerator attackSoundOn()
     {

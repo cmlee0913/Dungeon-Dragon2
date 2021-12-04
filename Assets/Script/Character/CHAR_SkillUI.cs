@@ -21,8 +21,13 @@ public class CHAR_SkillUI : MonoBehaviour
     float Skill3_CoolTime;
 
     public GameObject Skill2_GlassEffect;
+    CHAR_CharacterStatus cHAR_CharacterStatus;
 
-    // Start is called before the first frame update
+    void Awake() 
+    {
+        cHAR_CharacterStatus = transform.root.GetComponent<CHAR_CharacterStatus>();
+    }
+
     void Start()
     {
         Skill1_able = false;
@@ -93,7 +98,9 @@ public class CHAR_SkillUI : MonoBehaviour
         Skill1_CoolTime_UI.SetActive(true);
         Skill1_CoolTime_UI.GetComponent<CHAR_CoolTimeUI>().SettingCoolTime(Skill1_CoolTime);
 
-        // 스태미너 채우기 코드 입력요망
+        Debug.Log("Skill Q");
+        cHAR_CharacterStatus.stamina = 100;
+
         Skill1_able = false;
     }
 
