@@ -20,6 +20,8 @@ public class CHAR_SkillUI : MonoBehaviour
     float Skill2_CoolTime;
     float Skill3_CoolTime;
 
+    public GameObject Skill2_GlassEffect;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -28,7 +30,7 @@ public class CHAR_SkillUI : MonoBehaviour
         Skill3_able = false;
 
         Skill1_CoolTime = 7.0f;
-        Skill2_CoolTime = 7.0f;
+        Skill2_CoolTime = 30.0f;
         Skill3_CoolTime = 7.0f;
     }
 
@@ -41,7 +43,7 @@ public class CHAR_SkillUI : MonoBehaviour
             Skill1.SetActive(false);
         }
 
-        if (StageControl.Instance.CheckStageClear(2) && Skill2.activeSelf)
+        if (Skill2.activeSelf)
         {
             Skill2_able = true;
             Skill2.SetActive(false);
@@ -53,22 +55,22 @@ public class CHAR_SkillUI : MonoBehaviour
             Skill3.SetActive(false);
         }
 
-        if(Input.GetKeyDown(KeyCode.Q) && Skill1_able)
+        if (Input.GetKeyDown(KeyCode.Q) && Skill1_able)
         {
             Active_Skill1();
         }
 
-        if(Input.GetKeyDown(KeyCode.W) && Skill2_able)
+        if (Input.GetKeyDown(KeyCode.W) && Skill2_able)
         {
             Active_Skill2();
         }
 
-        if(Input.GetKeyDown(KeyCode.E) && Skill3_able)
+        if (Input.GetKeyDown(KeyCode.E) && Skill3_able)
         {
             Active_Skill3();
         }
 
-        if(!Skill1_CoolTime_UI.activeSelf)
+        if (!Skill1_CoolTime_UI.activeSelf)
         {
             Skill1_able = true;
         }
@@ -76,6 +78,7 @@ public class CHAR_SkillUI : MonoBehaviour
         if (!Skill2_CoolTime_UI.activeSelf)
         {
             Skill2_able = true;
+
         }
 
         if (!Skill3_CoolTime_UI.activeSelf)
@@ -89,6 +92,8 @@ public class CHAR_SkillUI : MonoBehaviour
     {
         Skill1_CoolTime_UI.SetActive(true);
         Skill1_CoolTime_UI.GetComponent<CHAR_CoolTimeUI>().SettingCoolTime(Skill1_CoolTime);
+
+        // 스태미너 채우기 코드 입력요망
         Skill1_able = false;
     }
 
@@ -96,6 +101,11 @@ public class CHAR_SkillUI : MonoBehaviour
     {
         Skill2_CoolTime_UI.SetActive(true);
         Skill2_CoolTime_UI.GetComponent<CHAR_CoolTimeUI>().SettingCoolTime(Skill2_CoolTime);
+
+        Skill2_GlassEffect.SetActive(true);
+
+        Skill2_GlassEffect.GetComponent<DetectingScript>().ActivaitingGlass();
+
         Skill2_able = false;
     }
 
