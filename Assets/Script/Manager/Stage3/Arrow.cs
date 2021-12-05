@@ -18,6 +18,12 @@ public class Arrow : MonoBehaviour
         target = GameObject.FindGameObjectWithTag("Player").transform;
         target_pos = target.position;
 
+        Vector3 vector = target.position - transform.position;
+        vector.Normalize();
+
+        Quaternion quaternion = Quaternion.LookRotation(vector);
+        transform.localRotation = quaternion;
+
         status = FindObjectOfType<CHAR_CharacterStatus>();
     }
 
@@ -27,9 +33,10 @@ public class Arrow : MonoBehaviour
         transform.position = Vector3.MoveTowards(transform.position, target_pos, speed);
     }
 
+
     private void OnTriggerEnter(Collider other)
     {
-        if(other.tag == "Player")
+        if (other.tag == "Player")
         {
             status.HP -= 15;
 
@@ -40,7 +47,7 @@ public class Arrow : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if(other.tag == "Ground")
+        if (other.tag == "Ground")
         {
             ObjectPool.instance.PerfabQueue.Enqueue(this.gameObject);
             this.gameObject.SetActive(false);
