@@ -19,12 +19,6 @@ public class Arrow : MonoBehaviour
         target_pos = target.position;
 
         status = FindObjectOfType<CHAR_CharacterStatus>();
-
-        Vector3 vector = target.position - transform.position;
-        vector.Normalize();
-
-        Quaternion quaternion = Quaternion.LookRotation(vector);
-        transform.localRotation = quaternion;
     }
 
     // Update is called once per frame
