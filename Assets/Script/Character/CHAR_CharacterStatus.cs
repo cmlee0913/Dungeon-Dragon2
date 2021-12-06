@@ -33,7 +33,7 @@ public class CHAR_CharacterStatus : MonoBehaviour {
 
     void Start()
     {
-
+        healEffect.SetActive(false);
     }
  
     void Update()
@@ -59,5 +59,13 @@ public class CHAR_CharacterStatus : MonoBehaviour {
     public void HealEffect()
     {
         healSound.Play();
+        StartCoroutine(EffectOn());
+    }
+
+    IEnumerator EffectOn()
+    {
+        healEffect.SetActive(true);
+        yield return new WaitForSeconds(0.8f);
+        healEffect.SetActive(false);
     }
 }
