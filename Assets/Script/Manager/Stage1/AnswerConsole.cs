@@ -22,6 +22,7 @@ public class AnswerConsole : MonoBehaviour
         {
             patternManager.TakeAnswerPuzzle(patternManager.CheckPuzzleAnswer());
             Player.GetComponent<CHAR_CharacterStatus>().HP = Player.GetComponent<CHAR_CharacterStatus>().MaxHP;
+            Player.GetComponent<CHAR_CharacterStatus>().HealEffect();
         }
 
         if(Input.GetKeyDown(KeyCode.R)) // µð¹ö±ë¿ë

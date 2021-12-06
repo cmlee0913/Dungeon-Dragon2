@@ -27,6 +27,9 @@ public class CHAR_CharacterStatus : MonoBehaviour {
     public bool powerBoost = false;
     // 공격력 강화 시간.
     float powerBoostTime = 0.0f;
+    public GameObject healEffect;
+    public AudioSource healSound;
+
 
     void Start()
     {
@@ -50,5 +53,11 @@ public class CHAR_CharacterStatus : MonoBehaviour {
             this.gameObject.tag = "DiePlayer";
             cHAR_PlayerControll.playerAnimator.SetTrigger("isDie");
         }
+    }
+
+
+    public void HealEffect()
+    {
+        healSound.Play();
     }
 }
