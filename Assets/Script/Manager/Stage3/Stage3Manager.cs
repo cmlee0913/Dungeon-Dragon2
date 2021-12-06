@@ -13,10 +13,10 @@ public class Stage3Manager : MonoBehaviour
         {
             instance = this;
         }
-        /*else
+        else
         {
             Destroy(this.gameObject);
-        }*/
+        }
     }
 
     CHAR_CharacterStatus status;
@@ -37,6 +37,7 @@ public class Stage3Manager : MonoBehaviour
     public bool is_cure = false;
 
     public float posionDamage = 2.0f;
+    public float healing = 5.0f;
 
     // Start is called before the first frame update
     void Start()
@@ -83,7 +84,7 @@ public class Stage3Manager : MonoBehaviour
 
             if (heal_timer >= 3)
             {
-                status.HP += 1;
+                status.HP += healing;
                 if(status.HP >= status.MaxHP)
                 {
                     status.HP = status.MaxHP;

@@ -12,6 +12,9 @@ public class Arrow : MonoBehaviour
 
     CHAR_CharacterStatus status;
 
+    private float timer = 0;
+    private float delete_time = 5.0f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -30,7 +33,15 @@ public class Arrow : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        timer += Time.deltaTime;
         transform.position = Vector3.MoveTowards(transform.position, target_pos, speed);
+
+        if(timer >= delete_time)
+        {
+            ObjectPool.instance.PerfabQueue.Enqueue(this.gameObject);
+            timer = 0;
+            this.gameObject.SetActive(false);
+        }
     }
 
 

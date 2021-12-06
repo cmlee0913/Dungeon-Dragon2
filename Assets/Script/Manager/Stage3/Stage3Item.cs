@@ -20,6 +20,7 @@ public class Stage3Item : MonoBehaviour
     {
         if(other.tag == "Player")
         {
+            Stage3Manager.instance.is_poison = false;
             StageControl.Instance.StageClear(3);
         }
     }
