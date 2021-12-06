@@ -39,8 +39,6 @@ public class Stage3Manager : MonoBehaviour
     public float posionDamage = 2.0f;
     public float healing = 5.0f;
 
-    private GameObject[] monsters;
-
     // Start is called before the first frame update
     void Start()
     {
@@ -56,12 +54,6 @@ public class Stage3Manager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        monsters = GameObject.FindGameObjectsWithTag("Monster");
-        foreach(GameObject monster in monsters)
-        {
-            monster.transform.localScale = new Vector3(3, 3, 3);
-        }
-
         timer += Time.deltaTime;
 
         if(timer >= 5)

@@ -1630,7 +1630,7 @@ Transform:
   m_GameObject: {fileID: 1447785135731268086}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 15.33, y: 0, z: 0}
-  m_LocalScale: {x: 0.3614165, y: 0.3614165, z: 0.3614165}
+  m_LocalScale: {x: 3, y: 3, z: 3}
   m_Children:
   - {fileID: 1447785135731599304}
   - {fileID: 1447785135731532090}
@@ -1688,15 +1688,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64d9c4d7410477c4a95f565b9cc97630, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyGeneratorCtrl: {fileID: 0}
+  objectPool: {fileID: 0}
   waitBaseTime: 2
   walkRange: 5
   basePosition: {x: 0, y: 0, z: 0}
   dropItemPrefab:
-  - {fileID: 0}
-  - {fileID: 0}
-  StartHealth: 100
-  Health: 100
+  - {fileID: 2204677539248163507, guid: fe5f5d80c681dee45a57a977ca6cd2be, type: 3}
+  StartHealth: 50
   HealthBar: {fileID: 8001768108181543970}
+  state: 0
   deathSeClip: {fileID: 0}
 --- !u!114 &824184506214083853
 MonoBehaviour:
@@ -1712,7 +1713,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   arrived: 0
   destination: {x: 0, y: 0, z: 0}
-  walkSpeed: 6
+  walkSpeed: 10
   rotationSpeed: 360
 --- !u!114 &3916829615284327692
 MonoBehaviour:
@@ -1726,11 +1727,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2281d0507ee5934ea3478d6ed101444, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HP: 100
-  MaxHP: 100
+  HP: 50
+  MaxHP: 50
   Power: 10
   lastAttackTarget: {fileID: 0}
-  characterName: Player
+  characterName: Monster3
   attacking: 0
   died: 0
   powerBoost: 0
