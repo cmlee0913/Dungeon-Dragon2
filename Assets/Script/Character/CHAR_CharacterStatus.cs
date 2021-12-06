@@ -38,20 +38,19 @@ public class CHAR_CharacterStatus : MonoBehaviour {
  
     void Update()
     {
-
-    }
-
-    void Damage(AttackArea.AttackInfo attackInfo) {
-        if (!cHAR_PlayerControll.died && HP > attackInfo.attackPower) {
-            cHAR_PlayerControll.playerAnimator.SetTrigger("getHit");
-            HP -= attackInfo.attackPower;
-        }
-        else if (HP <= attackInfo.attackPower || HP <= 0) {
+        if (HP <= 0 && !cHAR_PlayerControll.died) {
             HP = 0;
             cHAR_PlayerControll.died = true;
             cHAR_PlayerControll.playerAnimator.SetBool("Died", cHAR_PlayerControll.died);
             this.gameObject.tag = "DiePlayer";
             cHAR_PlayerControll.playerAnimator.SetTrigger("isDie");
+        }
+    }
+
+    void Damage(AttackArea.AttackInfo attackInfo) {
+        if (!cHAR_PlayerControll.died && HP >= attackInfo.attackPower) {
+            cHAR_PlayerControll.playerAnimator.SetTrigger("getHit");
+            HP -= attackInfo.attackPower;
         }
     }
 
