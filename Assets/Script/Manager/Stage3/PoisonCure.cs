@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class PoisonCure : MonoBehaviour
 {
+    private void Start()
+    {
+        this.gameObject.transform.position = new Vector3(this.gameObject.transform.position.x, 0.0f, this.gameObject.transform.position.z);
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if(other.tag == "Player")

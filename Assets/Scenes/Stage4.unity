@@ -588,7 +588,6 @@ GameObject:
   m_Component:
   - component: {fileID: 349730985}
   - component: {fileID: 349730984}
-  - component: {fileID: 349730986}
   m_Layer: 0
   m_Name: Stage4Manager
   m_TagString: Untagged
@@ -627,23 +626,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &349730986
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 349730983}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 89e6130d85308954684b04228f8b4cf2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  stage1Clear: 0
-  stage2Clear: 0
-  stage3Clear: 0
-  stage4Clear: 0
-  bossClear: 0
 --- !u!4 &359926505 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4000012015927304, guid: 5c02591794acece409986647ed6329a7, type: 3}

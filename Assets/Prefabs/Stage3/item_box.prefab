@@ -120,7 +120,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06f571160cad61949ba068bde2a4898b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  item: {fileID: 8551219160023252559, guid: b5a382d62e88a0c4ca8a2c3db52264d3, type: 3}
+  item: {fileID: 868510926518053264, guid: 7f96eb07418a3154d88a7329da605a44, type: 3}
   is_item: 0
 --- !u!114 &4291117402773375559
 MonoBehaviour:
@@ -153,8 +153,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.49573824, y: 0.6506906, z: 0.5584457}
-  m_Center: {x: -0.033669185, y: -0.0030398609, z: 0.27922305}
+  m_Size: {x: 0.5087644, y: 0.6506906, z: 0.61286664}
+  m_Center: {x: -0.027156163, y: -0.0030398609, z: 0.30643505}
 --- !u!1001 &4291117402203644366
 PrefabInstance:
   m_ObjectHideFlags: 0

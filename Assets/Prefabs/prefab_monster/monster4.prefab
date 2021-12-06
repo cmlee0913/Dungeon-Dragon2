@@ -328,7 +328,7 @@ GameObject:
   - component: {fileID: 1263792978}
   m_Layer: 0
   m_Name: monster4
-  m_TagString: Untagged
+  m_TagString: Monster
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -361,7 +361,7 @@ Animator:
   m_GameObject: {fileID: 2789324334089214796}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 063e65bf9ea59ea44bb459f4b7490fd3, type: 3}
-  m_Controller: {fileID: 9100000, guid: 3705d3d72efc1104fa7fa5b1ae6aa552, type: 2}
+  m_Controller: {fileID: 9100000, guid: 7d2263dda38f05441836f003c38cff66, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -432,13 +432,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64d9c4d7410477c4a95f565b9cc97630, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyGeneratorCtrl: {fileID: 0}
+  objectPool: {fileID: 0}
   waitBaseTime: 2
   walkRange: 5
   basePosition: {x: 0, y: 0, z: 0}
   dropItemPrefab: []
   StartHealth: 100
-  Health: 100
   HealthBar: {fileID: 2580331141690133961}
+  state: 0
   deathSeClip: {fileID: 0}
 --- !u!114 &1263792978
 MonoBehaviour:
