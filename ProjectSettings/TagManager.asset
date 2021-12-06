@@ -15,6 +15,7 @@ TagManager:
   - Sword
   - Pillar
   - Clocking
+  - deadPanel
   layers:
   - Default
   - TransparentFX
