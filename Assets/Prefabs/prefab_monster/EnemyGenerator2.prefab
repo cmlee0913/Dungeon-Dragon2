@@ -43,7 +43,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a9e29aa3a0dc18409d7e3e5d2df08b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  poolingObjectPrefeb: {fileID: 0}
+  minimum: 0
+  maximum: 0
 --- !u!1 &3071053495726178120
 GameObject:
   m_ObjectHideFlags: 0

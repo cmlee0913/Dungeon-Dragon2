@@ -9,6 +9,8 @@ public class EnemyObjectPool : MonoBehaviour
     GameObject poolingObjectPrefeb;
     Queue<MonsterCtrl> poolingObjectQueue = new Queue<MonsterCtrl>();
 
+    public float minimum = -20f;
+    public float maximum = 20f;
     void Awake()
     {
         instance = this;
@@ -38,7 +40,7 @@ public class EnemyObjectPool : MonoBehaviour
         {
             var obj = instance.poolingObjectQueue.Dequeue();
             obj.transform.SetParent(null);
-            obj.gameObject.transform.position = transform.position + new Vector3(Random.Range(-20F, 20F), 0 , Random.Range(-20F, 20F));
+            obj.gameObject.transform.position = transform.position + new Vector3(Random.Range(minimum, maximum), 0 , Random.Range(minimum, maximum));
             obj.gameObject.SetActive(true);
 
             return obj;
@@ -47,7 +49,7 @@ public class EnemyObjectPool : MonoBehaviour
         {
             var newObj = instance.CreateNewObject();
             newObj.transform.SetParent(null);
-            newObj.gameObject.transform.position = transform.position + new Vector3(Random.Range(-20F, 20F), 0 , Random.Range(-20F, 20F));
+            newObj.gameObject.transform.position = transform.position + new Vector3(Random.Range(minimum, maximum), 0 , Random.Range(minimum, maximum));
             newObj.gameObject.SetActive(true);
 
             return newObj;

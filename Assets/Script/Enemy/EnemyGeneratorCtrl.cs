@@ -11,6 +11,8 @@ public class EnemyGeneratorCtrl : MonoBehaviour {
 	public int maxEnemy;
 	public int enemyCount = 0;
 
+	public float respawnTime = 5.0f;
+
 	void Awake() {
 		objectPool = transform.GetChild(0).GetComponent<EnemyObjectPool>();
 	}
@@ -29,7 +31,7 @@ public class EnemyGeneratorCtrl : MonoBehaviour {
 		while (true) { 
 			if (enemyCount < maxEnemy)
 				Generate();
-			yield return new WaitForSeconds( 5.0f );
+			yield return new WaitForSeconds( respawnTime );
 		}
 	}
 
