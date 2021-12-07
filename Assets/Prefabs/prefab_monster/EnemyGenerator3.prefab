@@ -43,6 +43,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a9e29aa3a0dc18409d7e3e5d2df08b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  minimum: -20
+  maximum: 20
 --- !u!1 &7636621893500473698
 GameObject:
   m_ObjectHideFlags: 0
@@ -87,6 +89,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0d4eaa52d367094085292bcd5fe1667, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyPrefab: {fileID: 0}
+  enemyPrefab: {fileID: 1447785135731268086, guid: 1f0c8bb0474781c4493ed1c12f392ee8, type: 3}
   maxEnemy: 2
   enemyCount: 0
