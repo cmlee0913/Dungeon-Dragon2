@@ -324,8 +324,9 @@ GameObject:
   - component: {fileID: 1263792982}
   - component: {fileID: 1263792981}
   - component: {fileID: 1263792980}
-  - component: {fileID: 1263792979}
   - component: {fileID: 1263792978}
+  - component: {fileID: 4077689774959169219}
+  - component: {fileID: 122116252892417106}
   m_Layer: 0
   m_Name: monster4
   m_TagString: Monster
@@ -381,13 +382,13 @@ CharacterController:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Height: 2
-  m_Radius: 0.5
+  m_Height: 1
+  m_Radius: 0.7
   m_SlopeLimit: 20
   m_StepOffset: 0.3
   m_SkinWidth: 0.08
-  m_MinMoveDistance: 0.001
-  m_Center: {x: 0, y: 0, z: 0}
+  m_MinMoveDistance: 0
+  m_Center: {x: 0, y: 0.7, z: 0}
 --- !u!114 &1263792981
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -414,34 +415,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HP: 100
   MaxHP: 100
-  Power: 10
+  Power: 15
   lastAttackTarget: {fileID: 0}
-  characterName: Player
+  characterName: Monster4
   attacking: 0
   died: 0
   powerBoost: 0
---- !u!114 &1263792979
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2789324334089214796}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 64d9c4d7410477c4a95f565b9cc97630, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enemyGeneratorCtrl: {fileID: 0}
-  objectPool: {fileID: 0}
-  waitBaseTime: 2
-  walkRange: 5
-  basePosition: {x: 0, y: 0, z: 0}
-  dropItemPrefab: []
-  StartHealth: 100
-  HealthBar: {fileID: 2580331141690133961}
-  state: 0
-  deathSeClip: {fileID: 0}
 --- !u!114 &1263792978
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -458,6 +437,38 @@ MonoBehaviour:
   destination: {x: 0, y: 0, z: 0}
   walkSpeed: 6
   rotationSpeed: 360
+--- !u!114 &4077689774959169219
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2789324334089214796}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf78b6bb0790ce8498fa3dd7501ab58c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waitBaseTime: 2
+  walkRange: 5
+  basePosition: {x: 0, y: 0, z: 0}
+  dropItemPrefab: []
+  StartHealth: 100
+  HealthBar: {fileID: 2580331141690133961}
+  state: 0
+  deathSeClip: {fileID: 0}
+--- !u!114 &122116252892417106
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2789324334089214796}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a9c4fe7f94d06649a713a000d5c6875, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2789324334089216456
 GameObject:
   m_ObjectHideFlags: 0
@@ -2009,7 +2020,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 70
+  m_Radius: 130
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &2181940234885244474
 Rigidbody:
@@ -2442,7 +2453,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2789324334089305644}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 997.5, y: 446.04, z: 406.48}
