@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.48989064, g: 0.50484574, b: 0.52604854, a: 1}
+  m_IndirectSpecularColor: {r: 0.4902311, g: 0.50511056, b: 0.52620167, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3260,30 +3260,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1374822222, guid: 79fee82a472048a4aa382b4df34ca2ca, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1374822225, guid: 79fee82a472048a4aa382b4df34ca2ca, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.9914449
-      objectReference: {fileID: 0}
-    - target: {fileID: 1374822225, guid: 79fee82a472048a4aa382b4df34ca2ca, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0.13052616
-      objectReference: {fileID: 0}
-    - target: {fileID: 1374822225, guid: 79fee82a472048a4aa382b4df34ca2ca, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1374822225, guid: 79fee82a472048a4aa382b4df34ca2ca, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1374822225, guid: 79fee82a472048a4aa382b4df34ca2ca, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 15
-      objectReference: {fileID: 0}
     - target: {fileID: 5920068224774629472, guid: 79fee82a472048a4aa382b4df34ca2ca, type: 3}
       propertyPath: resistTime
       value: 1
@@ -3344,9 +3320,7 @@ PrefabInstance:
       propertyPath: AttackSound
       value: 
       objectReference: {fileID: 323672449}
-    m_RemovedComponents:
-    - {fileID: 5102286746524230285, guid: 79fee82a472048a4aa382b4df34ca2ca, type: 3}
-    - {fileID: 1374822222, guid: 79fee82a472048a4aa382b4df34ca2ca, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 79fee82a472048a4aa382b4df34ca2ca, type: 3}
 --- !u!1001 &570285124
 PrefabInstance:
@@ -5056,7 +5030,7 @@ RectTransform:
   m_GameObject: {fileID: 840092819}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 1}
   m_Children:
   - {fileID: 1535558026}
   - {fileID: 1868719625}
