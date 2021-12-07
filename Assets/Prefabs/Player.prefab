@@ -2671,7 +2671,7 @@ MonoBehaviour:
   HP: 200
   MaxHP: 200
   stamina: 100
-  Power: 10
+  Power: 25
   lastAttackTarget: {fileID: 0}
   characterName: Player
   attacking: 0

@@ -22,7 +22,7 @@ public class CHAR_SkillUI : MonoBehaviour
 
     public GameObject Skill2_GlassEffect;
     CHAR_CharacterStatus cHAR_CharacterStatus;
-    public float resistTime = 1.0f;
+    public float resistTime;
 
     void Awake() 
     {
@@ -31,6 +31,8 @@ public class CHAR_SkillUI : MonoBehaviour
 
     void Start()
     {
+        resistTime = 15.0f;
+
         Skill1_able = false;
         Skill2_able = false;
         Skill3_able = false;
@@ -96,12 +98,12 @@ public class CHAR_SkillUI : MonoBehaviour
         if (resistTime > 0.0f) {
             resistTime -= Time.deltaTime;
             if (Stage3Manager.instance)
-                Stage3Manager.instance.posionDamage = 1;
+                Stage3Manager.instance.posionDamage = 5;
         }
         else {
             resistTime = 0f;
             if (Stage3Manager.instance)
-                Stage3Manager.instance.posionDamage = 2;
+                Stage3Manager.instance.posionDamage = 10;
         }
     }
 

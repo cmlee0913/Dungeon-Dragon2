@@ -36,8 +36,8 @@ public class Stage3Manager : MonoBehaviour
     public bool is_poison = false;
     public bool is_cure = false;
 
-    public float posionDamage = 2.0f;
-    public float healing = 5.0f;
+    public float posionDamage = 10.0f;
+    public float healing = 10.0f;
 
     // Start is called before the first frame update
     void Start()
@@ -62,12 +62,6 @@ public class Stage3Manager : MonoBehaviour
 
             timer = 0;
         }
-
-        if(StageControl.Instance.CheckStageClear(3))
-        {
-            SceneManager.LoadScene("Lobby");
-        }
-
         Poison();
     }
 
