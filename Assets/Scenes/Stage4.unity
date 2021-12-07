@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.5748171, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -608,13 +608,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1263792979, guid: 7a3034dd17c07be48908dbac395c033b, type: 3}
+      propertyPath: enemyGeneratorCtrl
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1263792979, guid: 7a3034dd17c07be48908dbac395c033b, type: 3}
+      propertyPath: dropItemPrefab.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1263792979, guid: 7a3034dd17c07be48908dbac395c033b, type: 3}
+      propertyPath: dropItemPrefab.Array.data[0]
+      value: 
+      objectReference: {fileID: 8860877112718550471, guid: fe7b32384b41f084eb8bc9f63fc0bd7a, type: 3}
     - target: {fileID: 1263792980, guid: 7a3034dd17c07be48908dbac395c033b, type: 3}
       propertyPath: characterName
       value: Monster4
-      objectReference: {fileID: 0}
-    - target: {fileID: 1263792982, guid: 7a3034dd17c07be48908dbac395c033b, type: 3}
-      propertyPath: m_Enabled
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2789324334089069656, guid: 7a3034dd17c07be48908dbac395c033b, type: 3}
       propertyPath: m_RootOrder
@@ -668,22 +676,6 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Monster
       objectReference: {fileID: 0}
-    - target: {fileID: 4077689774959169219, guid: 7a3034dd17c07be48908dbac395c033b, type: 3}
-      propertyPath: walkRange
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 4077689774959169219, guid: 7a3034dd17c07be48908dbac395c033b, type: 3}
-      propertyPath: waitBaseTime
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 4077689774959169219, guid: 7a3034dd17c07be48908dbac395c033b, type: 3}
-      propertyPath: dropItemPrefab.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4077689774959169219, guid: 7a3034dd17c07be48908dbac395c033b, type: 3}
-      propertyPath: dropItemPrefab.Array.data[0]
-      value: 
-      objectReference: {fileID: 3630664287276459140, guid: d2e29e5208c294e4385652f83d08c1d1, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7a3034dd17c07be48908dbac395c033b, type: 3}
 --- !u!1 &349730983
@@ -941,6 +933,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1263792979, guid: 7a3034dd17c07be48908dbac395c033b, type: 3}
+      propertyPath: dropItemPrefab.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1263792979, guid: 7a3034dd17c07be48908dbac395c033b, type: 3}
+      propertyPath: dropItemPrefab.Array.data[0]
+      value: 
+      objectReference: {fileID: 1435885695085542450, guid: 2ae4f5a0b9d1ace458d9a3b1b978450d, type: 3}
     - target: {fileID: 1263792980, guid: 7a3034dd17c07be48908dbac395c033b, type: 3}
       propertyPath: characterName
       value: Monster4
@@ -997,14 +997,6 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Monster
       objectReference: {fileID: 0}
-    - target: {fileID: 4077689774959169219, guid: 7a3034dd17c07be48908dbac395c033b, type: 3}
-      propertyPath: dropItemPrefab.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4077689774959169219, guid: 7a3034dd17c07be48908dbac395c033b, type: 3}
-      propertyPath: dropItemPrefab.Array.data[0]
-      value: 
-      objectReference: {fileID: 819597630027474656, guid: 74c7a13783bc2c049846fa6510a0ff4f, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7a3034dd17c07be48908dbac395c033b, type: 3}
 --- !u!4 &685491999 stripped
@@ -1678,6 +1670,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1263792979, guid: 7a3034dd17c07be48908dbac395c033b, type: 3}
+      propertyPath: dropItemPrefab.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1263792979, guid: 7a3034dd17c07be48908dbac395c033b, type: 3}
+      propertyPath: dropItemPrefab.Array.data[0]
+      value: 
+      objectReference: {fileID: 3630664287276459140, guid: d2e29e5208c294e4385652f83d08c1d1, type: 3}
     - target: {fileID: 1263792980, guid: 7a3034dd17c07be48908dbac395c033b, type: 3}
       propertyPath: characterName
       value: Monster4
@@ -1734,14 +1734,6 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Monster
       objectReference: {fileID: 0}
-    - target: {fileID: 4077689774959169219, guid: 7a3034dd17c07be48908dbac395c033b, type: 3}
-      propertyPath: dropItemPrefab.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4077689774959169219, guid: 7a3034dd17c07be48908dbac395c033b, type: 3}
-      propertyPath: dropItemPrefab.Array.data[0]
-      value: 
-      objectReference: {fileID: 8860877112718550471, guid: fe7b32384b41f084eb8bc9f63fc0bd7a, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7a3034dd17c07be48908dbac395c033b, type: 3}
 --- !u!1001 &1242285877
@@ -1751,6 +1743,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1263792979, guid: 7a3034dd17c07be48908dbac395c033b, type: 3}
+      propertyPath: dropItemPrefab.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1263792979, guid: 7a3034dd17c07be48908dbac395c033b, type: 3}
+      propertyPath: dropItemPrefab.Array.data[0]
+      value: 
+      objectReference: {fileID: 819597630027474656, guid: 74c7a13783bc2c049846fa6510a0ff4f, type: 3}
     - target: {fileID: 1263792980, guid: 7a3034dd17c07be48908dbac395c033b, type: 3}
       propertyPath: characterName
       value: Monster4
@@ -1807,14 +1807,6 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Monster
       objectReference: {fileID: 0}
-    - target: {fileID: 4077689774959169219, guid: 7a3034dd17c07be48908dbac395c033b, type: 3}
-      propertyPath: dropItemPrefab.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4077689774959169219, guid: 7a3034dd17c07be48908dbac395c033b, type: 3}
-      propertyPath: dropItemPrefab.Array.data[0]
-      value: 
-      objectReference: {fileID: 1435885695085542450, guid: 2ae4f5a0b9d1ace458d9a3b1b978450d, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7a3034dd17c07be48908dbac395c033b, type: 3}
 --- !u!1001 &1341449366
@@ -1824,6 +1816,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1263792979, guid: 7a3034dd17c07be48908dbac395c033b, type: 3}
+      propertyPath: dropItemPrefab.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1263792979, guid: 7a3034dd17c07be48908dbac395c033b, type: 3}
+      propertyPath: dropItemPrefab.Array.data[0]
+      value: 
+      objectReference: {fileID: 2493332204862672287, guid: 6499bab82a7d27243aa015c6283e5e37, type: 3}
     - target: {fileID: 1263792980, guid: 7a3034dd17c07be48908dbac395c033b, type: 3}
       propertyPath: characterName
       value: Monster4
@@ -1880,14 +1880,6 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Monster
       objectReference: {fileID: 0}
-    - target: {fileID: 4077689774959169219, guid: 7a3034dd17c07be48908dbac395c033b, type: 3}
-      propertyPath: dropItemPrefab.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4077689774959169219, guid: 7a3034dd17c07be48908dbac395c033b, type: 3}
-      propertyPath: dropItemPrefab.Array.data[0]
-      value: 
-      objectReference: {fileID: 2493332204862672287, guid: 6499bab82a7d27243aa015c6283e5e37, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7a3034dd17c07be48908dbac395c033b, type: 3}
 --- !u!1001 &1400874129
