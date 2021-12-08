@@ -57,7 +57,6 @@ public class BossManager : MonoBehaviour
                 if (spawner.activeSelf == true)
                     spawner.SetActive(false);
                 phase = Phase.Phase0;
-                phase1End = true;
                 phase2Start = true;
             }
         }
@@ -144,13 +143,13 @@ public class BossManager : MonoBehaviour
         attackRange.enabled = true;
         hitArea.enabled = true;
         GetComponent<BoxCollider>().enabled = true;
-        moveToPlayer.enabled = true;
+        moveToPlayer.agent.enabled = true;
     }
 
     void OffInspector() {
         attackRange.enabled = false;
         hitArea.enabled = false;
         GetComponent<BoxCollider>().enabled = false;
-        moveToPlayer.enabled = false;
+        moveToPlayer.agent.enabled = false;
     }
 }

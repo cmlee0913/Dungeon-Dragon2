@@ -32,6 +32,7 @@ public class FireballClocking : MonoBehaviour
 
         if (other.transform.tag == "Player")
         {
+            Debug.Log("불덩이에게 공격당한다");
             other.gameObject.GetComponent<CHAR_CharacterStatus>().HP -= 10;
             Destroy(gameObject);
         }
