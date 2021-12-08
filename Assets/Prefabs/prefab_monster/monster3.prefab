@@ -1734,7 +1734,6 @@ MonoBehaviour:
   characterName: Monster3
   attacking: 0
   died: 0
-  powerBoost: 0
 --- !u!114 &7133927185380075666
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2776,7 +2775,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 5
+  m_Radius: 8
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &1849396409175832842
 MonoBehaviour:

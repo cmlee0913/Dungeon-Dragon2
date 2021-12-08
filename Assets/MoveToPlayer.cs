@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.AI;
 
 public class MoveToPlayer : MonoBehaviour {
-    public NavMeshAgent agent; 
+    NavMeshAgent agent; 
     Transform target;
     public bool isMove;
     public float distance;

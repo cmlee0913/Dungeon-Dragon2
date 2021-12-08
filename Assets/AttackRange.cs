@@ -13,7 +13,7 @@ public class AttackRange : MonoBehaviour
     }
 
     void OnTriggerStay(Collider other) {
-        if (!isAttack && other.tag == "Player" && !BossManager.instance.isUnbeatable) {
+        if (!isAttack && other.tag == "Player") {
             isAttack = true;
             bossAnimation.AttackStartAnimation();
             Invoke("AttackDelay", Random.Range(3, 5));

@@ -3,6 +3,7 @@ using System.Collections;
 
 public class SearchArea : MonoBehaviour {
 	MonsterCtrl enemyCtrl;
+
 	void Start()
 	{
 		// EnemyCtrl을 미리 준비한다.
@@ -11,8 +12,10 @@ public class SearchArea : MonoBehaviour {
 	
 	void OnTriggerStay( Collider other )
 	{
-        // Player태그를 타깃으로 한다.
-		if( other.tag == "Player" )
-			enemyCtrl.SetAttackTarget( other.transform );
+		// Player태그를 타깃으로 한다.
+		if (other.tag == "Player")
+		{
+			enemyCtrl.SetAttackTarget(other.transform);
+		}
 	}
 }

@@ -363,7 +363,7 @@ Animator:
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 063e65bf9ea59ea44bb459f4b7490fd3, type: 3}
   m_Controller: {fileID: 9100000, guid: 7d2263dda38f05441836f003c38cff66, type: 2}
-  m_CullingMode: 1
+  m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
@@ -420,7 +420,6 @@ MonoBehaviour:
   characterName: Monster4
   attacking: 0
   died: 0
-  powerBoost: 0
 --- !u!114 &1263792978
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -435,8 +434,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   arrived: 0
   destination: {x: 0, y: 0, z: 0}
-  walkSpeed: 6
-  rotationSpeed: 360
+  walkSpeed: 8
+  rotationSpeed: 240
 --- !u!114 &4077689774959169219
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -452,7 +451,7 @@ MonoBehaviour:
   waitBaseTime: 2
   walkRange: 5
   basePosition: {x: 0, y: 0, z: 0}
-  dropItemPrefab: []
+  dropItemPrefab: {fileID: 0}
   StartHealth: 100
   HealthBar: {fileID: 2580331141690133961}
   state: 0
@@ -2468,7 +2467,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7074367363006271403}
   - component: {fileID: 5423901110206883199}
-  - component: {fileID: 1225513091319285365}
+  - component: {fileID: 1777908170639155843}
   m_Layer: 0
   m_Name: SearchAreaCollider (2)
   m_TagString: Untagged
@@ -2501,9 +2500,9 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 6
+  m_Radius: 10
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &1225513091319285365
+--- !u!114 &1777908170639155843
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2512,7 +2511,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 3251180159875834774}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1e4ac8aa0cd894245bf86d42e627c8b0, type: 3}
+  m_Script: {fileID: 11500000, guid: 569b62fe7bdb60b45b116e3d1291b666, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &4016974512690153980
