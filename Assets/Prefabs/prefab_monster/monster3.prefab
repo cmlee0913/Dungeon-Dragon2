@@ -1713,7 +1713,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   arrived: 0
   destination: {x: 0, y: 0, z: 0}
-  walkSpeed: 10
+  walkSpeed: 40
   rotationSpeed: 360
 --- !u!114 &3916829615284327692
 MonoBehaviour:
@@ -1734,7 +1734,6 @@ MonoBehaviour:
   characterName: Monster3
   attacking: 0
   died: 0
-  powerBoost: 0
 --- !u!114 &7133927185380075666
 MonoBehaviour:
   m_ObjectHideFlags: 0

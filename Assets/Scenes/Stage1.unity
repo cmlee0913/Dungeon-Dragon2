@@ -319,6 +319,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Stage1Pattern
       objectReference: {fileID: 0}
+    - target: {fileID: 4726112827462389249, guid: 09e2225b2ae00b34392df4cb9a6358bc, type: 3}
+      propertyPath: Door
+      value: 
+      objectReference: {fileID: 416312319}
+    - target: {fileID: 4726112827462389249, guid: 09e2225b2ae00b34392df4cb9a6358bc, type: 3}
+      propertyPath: Camera
+      value: 
+      objectReference: {fileID: 70125461}
+    - target: {fileID: 4726112827462389249, guid: 09e2225b2ae00b34392df4cb9a6358bc, type: 3}
+      propertyPath: ClearSound
+      value: 
+      objectReference: {fileID: 5460882156042428382}
     - target: {fileID: 8334915490680008495, guid: 09e2225b2ae00b34392df4cb9a6358bc, type: 3}
       propertyPath: m_RootOrder
       value: 10
@@ -7780,6 +7792,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dea062d081b0f6b46bf295f35dddba0c, type: 3}
+--- !u!82 &5460882156042428382 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 5460882156581125101, guid: dea062d081b0f6b46bf295f35dddba0c, type: 3}
+  m_PrefabInstance: {fileID: 5460882156042428381}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &7987200592598341800
 PrefabInstance:
   m_ObjectHideFlags: 0
