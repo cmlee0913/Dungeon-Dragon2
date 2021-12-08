@@ -15,7 +15,7 @@ public class Stage4Monster : MonoBehaviour
     float waitTime;
     public float walkRange = 5.0f;
     public Vector3 basePosition;
-    public GameObject[] dropItemPrefab;
+    public GameObject dropItemPrefab;
 
     public float StartHealth;
     public GameObject HealthBar;
@@ -159,16 +159,14 @@ public class Stage4Monster : MonoBehaviour
 
 	void dropItem()
 	{
-		if (dropItemPrefab.Length == 0) { return; }
-		GameObject dropItem = dropItemPrefab[Random.Range(0, dropItemPrefab.Length)];
-		Instantiate(dropItem, transform.position, Quaternion.identity);
+		Instantiate(dropItemPrefab, new Vector3(transform.position.x, 2.0f, transform.position.z), Quaternion.Euler(-90f, 0, 0));
 	}
 
 	void Died()
 	{
 		status.died = true;
 		dropItem();
-		Destroy(gameObject);
+		Destroy(this.gameObject);
 
 		AudioSource.PlayClipAtPoint(deathSeClip, transform.position);
 	}

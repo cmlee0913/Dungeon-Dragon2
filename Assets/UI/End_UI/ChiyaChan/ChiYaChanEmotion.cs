@@ -24,11 +24,11 @@ public class ChiYaChanEmotion : MonoBehaviour {
 			ApplyEmotion (emotion);
 	}
 	void OnEnable(){
-		eye_blink=transform.FindChild ("eye_blink").gameObject;
-		eye_normalL=transform.FindChild ("eye_normalL").gameObject;
-		eye_normalR=transform.FindChild ("eye_normalR").gameObject;
-		eye_smileL=transform.FindChild ("eye_smileL").gameObject;
-		eye_smileR=transform.FindChild ("eye_smileR").gameObject;
+		eye_blink=transform.Find ("eye_blink").gameObject;
+		eye_normalL=transform.Find ("eye_normalL").gameObject;
+		eye_normalR=transform.Find ("eye_normalR").gameObject;
+		eye_smileL=transform.Find ("eye_smileL").gameObject;
+		eye_smileR=transform.Find ("eye_smileR").gameObject;
 		SetEmotion (Emotion.Normal);
 	}
 	void OnValidate()
