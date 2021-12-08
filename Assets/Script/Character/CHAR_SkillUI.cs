@@ -137,7 +137,7 @@ public class CHAR_SkillUI : MonoBehaviour
         Skill3_CoolTime_UI.GetComponent<CHAR_CoolTimeUI>().SettingCoolTime(Skill3_CoolTime);
 
         Debug.Log("Skill E");
-        resistTime = 15.0f;
+        cHAR_CharacterStatus.HP = cHAR_CharacterStatus.MaxHP;
 
         Skill3_able = false;
     }
