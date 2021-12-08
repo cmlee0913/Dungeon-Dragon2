@@ -89,12 +89,14 @@ public class Stage4Object : MonoBehaviour
         if(timer >= reflect_time)
         {
             is_reflect = true;
+            reflect_effect.SetActive(true);
         }
         if(reflect_timer >= reflect_damage_time)
         {
             is_reflect = false;
             timer = 0;
             reflect_timer = 0;
+            reflect_effect.SetActive(false);
         }
     }
 
@@ -119,8 +121,7 @@ public class Stage4Object : MonoBehaviour
         {
             if (is_reflect)
             {
-                status.HP -= obj_status.Power;
-
+                status.HP -= obj_status.Power;     
                 // ¿Ã∆Â∆Æ √ﬂ∞°
             }
             else
