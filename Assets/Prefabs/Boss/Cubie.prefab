@@ -12,9 +12,10 @@ GameObject:
   - component: {fileID: 8641305197361587764}
   - component: {fileID: 8631322950273466822}
   - component: {fileID: -5311199007172490986}
+  - component: {fileID: -7236813290965604505}
   m_Layer: 0
   m_Name: Cubie
-  m_TagString: Untagged
+  m_TagString: Clocking
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -92,5 +93,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6a10889c56a50aa42bb475d4b8ca016f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &-7236813290965604505
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8618382928815799930}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08f2f6188df2b6d46af9c82225115769, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

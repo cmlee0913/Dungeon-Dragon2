@@ -5,7 +5,6 @@ using UnityEngine.UI;
 
 public class DetectingScript : MonoBehaviour
 {
-    public List<GameObject> ClockingObject;
 
     public Text remainTimeText;
 
@@ -21,16 +20,26 @@ public class DetectingScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        GameObject[] ClockingObject = GameObject.FindGameObjectsWithTag("Clocking");
         if (glassTime > 0.0f)
+        {
+            
+            for (int i = 0; i < ClockingObject.Length; i++)
+            {
+                if (ClockingObject[i] == null) return;
+                ClockingObject[i].GetComponent<FireballClocking>().hasGlass = true;
+            }
             glassTime -= Time.deltaTime;
+        }
+
 
         if (glassTime <= 0.0f)
         {
-            for (int i = 0; i < ClockingObject.Count; i++)
+            for (int i = 0; i < ClockingObject.Length; i++)
             {
-                ClockingObject[i].GetComponent<Test_ClockingCube>().hasGlass = false;
+                if (ClockingObject[i] == null) return;
+                ClockingObject[i].GetComponent<FireballClocking>().hasGlass = false;
             }
-            ResetClockingObject();
             this.gameObject.SetActive(false);
         }
 
@@ -39,18 +48,11 @@ public class DetectingScript : MonoBehaviour
 
     public void ActivaitingGlass()
     {
-        ClockingObject.Add(GameObject.FindWithTag("Clocking"));
+       
 
         glassTime = 15.0f;
 
-        for (int i = 0; i < ClockingObject.Count; i++)
-        {
-            ClockingObject[i].GetComponent<Test_ClockingCube>().hasGlass = true;
-        }
     }
 
-    public void ResetClockingObject()
-    {
-        ClockingObject.Clear();
-    }
+  
 }
