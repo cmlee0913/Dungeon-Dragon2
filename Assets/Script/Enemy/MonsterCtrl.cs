@@ -208,14 +208,8 @@ public class MonsterCtrl : MonoBehaviour
 
 	public void Damage(CHAR_AttackArea.AttackInfo attackInfo)
 	{
-		//GameObject effect = Instantiate(hitEffect, transform.position, Quaternion.identity) as GameObject;
-		//effect.transform.localPosition = transform.position + new Vector3(0.0f, 0.5f, 0.0f);
-		//Destroy(effect, 0.3f);
-
 		status.HP -= attackInfo.attackPower;
 
-		// Update로 이동.
-		// HealthBar.GetComponent<Image>().fillAmount = status.HP / StartHealth;
 		if (status.HP <= 0)
 		{
 			status.HP = 0;
