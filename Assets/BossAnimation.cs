@@ -48,15 +48,18 @@ public class BossAnimation : MonoBehaviour
 
         switch (attackForm) {
             case 0:
+                characterStatus.Power = 30;
                 animator.SetTrigger("Attack1");
                 return;
             case 1:
+                characterStatus.Power = 20;
                 animator.SetTrigger("Attack2");
                 return;
             case 2:
                 if (fireAttackReady) {
                     fireAttackReady = false;
                     fireAttackCoolTime = 15.0f;
+                    characterStatus.Power = 60;
                     animator.SetTrigger("FireAttack");
                     StartCoroutine(FireAttack());
                 }

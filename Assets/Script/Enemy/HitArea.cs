@@ -2,7 +2,6 @@
 using System.Collections;
 
 public class HitArea : MonoBehaviour {
-	
 
 	public void Damage(CHAR_AttackArea.AttackInfo attackInfo)
 	{

@@ -48,7 +48,7 @@ public class CHAR_CharacterStatus : MonoBehaviour {
     }
 
     void Damage(AttackArea.AttackInfo attackInfo) {
-        if (!cHAR_PlayerControll.died && HP >= attackInfo.attackPower) {
+        if (!cHAR_PlayerControll.died) {
             cHAR_PlayerControll.playerAnimator.SetTrigger("getHit");
             HP -= attackInfo.attackPower;
         }
