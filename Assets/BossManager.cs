@@ -14,10 +14,12 @@ public class BossManager : MonoBehaviour
     public MoveToPlayer moveToPlayer;
     public HitArea hitArea;
     public AttackRange attackRange;
+    public GameObject stage1Gimmik;
+    public GameObject[] monsterSpawner;
     Phase phase = Phase.Phase0;
     public bool isUnbeatable;
 
-    bool phase1Start, phase2Start, phase1End, phase2End;
+    public bool phase1Start, phase2Start, phase1End, phase2End;
 
     void Awake() {
         if (instance == null) {
@@ -44,18 +46,26 @@ public class BossManager : MonoBehaviour
             phase1End = true;
             phase2End = true;
         }
+
+        
+        if (stage1Gimmik.GetComponentInChildren<Boss1Pattern>().puzzleLevel == 3) {
+            phase1End = true;
+            if (stage1Gimmik.activeSelf == true)
+                stage1Gimmik.SetActive(false);
+            foreach (GameObject spawner in monsterSpawner) {
+                if (spawner.activeSelf == true)
+                    spawner.SetActive(false);
+                phase = Phase.Phase0;
+                phase1End = true;
+            }
+        }
     }
 
     void PhaseCheck() {
-        if (characterStatus.HP <= (characterStatus.MaxHP * 2) / 3 && !phase1Start && !isUnbeatable) {
+        if (characterStatus.HP <= characterStatus.MaxHP / 2 && !phase1Start && !isUnbeatable) {
             UnbeatableMode();
             phase = Phase.Phase1;
             Phase1Gimmik();
-        }
-        if (characterStatus.HP <= characterStatus.MaxHP / 3 && !phase2Start && !isUnbeatable) {
-            UnbeatableMode();
-            phase = Phase.Phase2;
-            Phase2Gimmik();
         }
 
         if ((phase1End || phase2End) && isUnbeatable) {
@@ -76,9 +86,7 @@ public class BossManager : MonoBehaviour
 
     void Phase0Gimmik() {
         if (phase == Phase.Phase0) {
-            // 페이즈 1, 2 기믹 삭제하기
-            // if (기믹1 or 기믹2)
-            //    Destroy(기믹1 or 기믹2);
+            
         }
     }
 
@@ -87,19 +95,10 @@ public class BossManager : MonoBehaviour
             phase1Start = true;
         }
 
-        // if (기믹 조건이 완료된다면) {
-        //    phase1End = true;
-        //}
-    }
-
-    void Phase2Gimmik() {
-        if (phase == Phase.Phase2) {
-            phase2Start = true;
+        stage1Gimmik.SetActive(true);
+        foreach (GameObject spawner in monsterSpawner) {
+            spawner.SetActive(true);
         }
-
-        // if (기믹 조건이 완료된다면) {
-        //    phase2End = true;
-        //}
     }
 
     void UnbeatableMode() {
