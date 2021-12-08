@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.49010593, g: 0.50501704, b: 0.52613986, a: 1}
+  m_IndirectSpecularColor: {r: 0.4902311, g: 0.50511056, b: 0.52620167, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -664,6 +664,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 535822182}
+  - component: {fileID: 535822183}
   m_Layer: 5
   m_Name: HPBar
   m_TagString: Untagged
@@ -688,9 +689,22 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: -320, y: 268}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &535822183
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 535822181}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d50f356f2c6124499130ac8cc8537ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Boss: {fileID: 0}
 --- !u!1 &589638845 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8297974653615848102, guid: 90b814bb6961e424e96f8228de3e65af, type: 3}
@@ -830,6 +844,7 @@ GameObject:
   - component: {fileID: 648204740}
   - component: {fileID: 648204742}
   - component: {fileID: 648204741}
+  - component: {fileID: 648204743}
   m_Layer: 5
   m_Name: Image_front
   m_TagString: Untagged
@@ -853,8 +868,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.0011811, y: 0}
-  m_SizeDelta: {x: 271.11, y: 15.9591}
+  m_AnchoredPosition: {x: -6.4338, y: 1.246}
+  m_SizeDelta: {x: 1055.4677, y: 15.9591}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &648204741
 MonoBehaviour:
@@ -894,6 +909,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 648204739}
   m_CullTransparentMesh: 1
+--- !u!114 &648204743
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 648204739}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d50f356f2c6124499130ac8cc8537ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Boss: {fileID: 589638845}
 --- !u!1 &655767703
 GameObject:
   m_ObjectHideFlags: 0
@@ -1258,8 +1286,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -349.4456, y: 190.75}
-  m_SizeDelta: {x: 271.1088, y: 18.451}
+  m_AnchoredPosition: {x: 36.3055, y: 190.75}
+  m_SizeDelta: {x: 1042.6041, y: 18.451}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &986036840
 MonoBehaviour:
@@ -3515,7 +3543,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -534.7, y: 192.49998}
+  m_AnchoredPosition: {x: -876.2, y: 459}
   m_SizeDelta: {x: 146.0268, y: 145.0874}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1813590988
