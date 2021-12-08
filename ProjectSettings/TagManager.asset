@@ -16,6 +16,7 @@ TagManager:
   - Pillar
   - Clocking
   - deadPanel
+  - gameOverUI
   layers:
   - Default
   - TransparentFX

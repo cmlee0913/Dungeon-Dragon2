@@ -21,6 +21,6 @@ public class BossUI : MonoBehaviour
         float bossMaxHP = (float)Boss.GetComponent<CharacterStatus>().MaxHP;
 
         float value = bossHP/bossMaxHP;
-        this.GetComponent<Image>().fillAmount = value;
+        GetComponent<Image>().fillAmount = value;
     }
 }

@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class CHAR_CharacterStatus : MonoBehaviour {
     public CHAR_PlayerControll cHAR_PlayerControll;
@@ -30,6 +31,7 @@ public class CHAR_CharacterStatus : MonoBehaviour {
     public GameObject healEffect;
     public AudioSource healSound;
 
+    public GameObject GameOverUI;
 
     void Start()
     {
@@ -44,6 +46,7 @@ public class CHAR_CharacterStatus : MonoBehaviour {
             cHAR_PlayerControll.playerAnimator.SetBool("Died", cHAR_PlayerControll.died);
             this.gameObject.tag = "DiePlayer";
             cHAR_PlayerControll.playerAnimator.SetTrigger("isDie");
+            StartCoroutine(GoToLobby());
         }
     }
 
@@ -66,5 +69,14 @@ public class CHAR_CharacterStatus : MonoBehaviour {
         healEffect.SetActive(true);
         yield return new WaitForSeconds(0.8f);
         healEffect.SetActive(false);
+    }
+
+    IEnumerator GoToLobby()
+    {
+        GameOverUI.SetActive(true);
+
+        yield return new WaitForSeconds(5.0f);
+
+        SceneManager.LoadScene("Lobby");
     }
 }

@@ -704,7 +704,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d50f356f2c6124499130ac8cc8537ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Boss: {fileID: 0}
+  Boss: {fileID: 589638845}
 --- !u!1 &589638845 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8297974653615848102, guid: 90b814bb6961e424e96f8228de3e65af, type: 3}
@@ -3075,7 +3075,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2233571589885165291, guid: 79fee82a472048a4aa382b4df34ca2ca, type: 3}
       propertyPath: HP
-      value: 800
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 8392918508785615135, guid: 79fee82a472048a4aa382b4df34ca2ca, type: 3}
       propertyPath: m_ApplyRootMotion
