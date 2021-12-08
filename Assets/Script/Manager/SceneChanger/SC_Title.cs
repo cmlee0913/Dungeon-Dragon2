@@ -9,6 +9,11 @@ public class SC_Title : MonoBehaviour
         SceneManager.LoadScene("Lobby");
     }
 
+    public void BTN_Title()
+    {
+        SceneManager.LoadScene("Title");
+    }
+
     public void BTN_Exit() { // Exit 버튼
     #if UNITY_EDITOR // 유니티 에디터 안에서
         UnityEditor.EditorApplication.isPlaying = false;
