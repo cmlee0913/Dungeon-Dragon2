@@ -122,7 +122,8 @@ public class BossManager : MonoBehaviour
 
     void Died() {
         characterStatus.died = true;
-
+        isUnbeatable = true;
+        
         OffInspector();
 
         bossAnimation.animator.SetTrigger("Died");

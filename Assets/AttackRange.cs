@@ -18,7 +18,7 @@ public class AttackRange : MonoBehaviour
             bossAnimation.AttackStartAnimation();
             Invoke("AttackDelay", Random.Range(3, 5));
         }
-        if (!attacking && other.tag == "Player") {
+        if (!attacking && other.tag == "Player" && !BossManager.instance.characterStatus.died) {
             transform.root.LookAt(other.gameObject.transform.position);
         }
     }
