@@ -37,7 +37,7 @@ public class Stage3ItemBox : MonoBehaviour
         if (is_item)
         {
             Instantiate(item);
-            item.transform.position = new Vector3(this.gameObject.transform.position.x, 6.0f, this.gameObject.transform.position.z);
+            item.transform.position = new Vector3(this.gameObject.transform.position.x, 0.4f, this.gameObject.transform.position.z);
             Destroy(this.gameObject);
         }
         else

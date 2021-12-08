@@ -122,7 +122,7 @@ public class Stage3Manager : MonoBehaviour
         range_x = Random.Range((range_x / 2) * -1, range_x / 2);
         range_z = Random.Range((range_z / 2) * -1, range_z / 2);
 
-        Vector3 new_pos = new Vector3(range_x, 0f, range_z);
+        Vector3 new_pos = new Vector3(range_x, 1f, range_z);
         Vector3 respawn_pos = pos + new_pos;
 
         return respawn_pos;
@@ -132,10 +132,10 @@ public class Stage3Manager : MonoBehaviour
     {
         Vector3 pos = respawn_range.transform.position;
 
-        float range_x = Random.Range(-100, 210);
-        float range_z = Random.Range(105, -220);
+        float range_x = Random.Range(-47, 43);
+        float range_z = Random.Range(42, -47);
 
-        Vector3 new_pos = new Vector3(range_x, 1f, range_z);
+        Vector3 new_pos = new Vector3(range_x, 0f, range_z);
 
         return new_pos;
     }
