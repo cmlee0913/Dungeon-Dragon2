@@ -26,9 +26,11 @@ public class FireballClocking : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnCollisionEnter(Collision other)
     {
-        if (other.tag == "Player")
+        Destroy(gameObject);
+
+        if (other.transform.tag == "Player")
         {
             other.gameObject.GetComponent<CHAR_CharacterStatus>().HP -= 10;
             Destroy(gameObject);
