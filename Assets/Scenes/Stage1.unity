@@ -319,6 +319,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Stage1Pattern
       objectReference: {fileID: 0}
+    - target: {fileID: 4726112827462389249, guid: 09e2225b2ae00b34392df4cb9a6358bc, type: 3}
+      propertyPath: Door
+      value: 
+      objectReference: {fileID: 416312319}
+    - target: {fileID: 4726112827462389249, guid: 09e2225b2ae00b34392df4cb9a6358bc, type: 3}
+      propertyPath: Camera
+      value: 
+      objectReference: {fileID: 70125461}
     - target: {fileID: 8334915490680008495, guid: 09e2225b2ae00b34392df4cb9a6358bc, type: 3}
       propertyPath: m_RootOrder
       value: 10
