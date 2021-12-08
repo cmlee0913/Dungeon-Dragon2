@@ -13,6 +13,7 @@ public class BossAnimation : MonoBehaviour
     public bool screaming;
     public float fireAttackCoolTime = 15.0f;
     public bool fireAttackReady;
+    public GameObject fireEffect;
 
     void Awake()
     {
@@ -57,6 +58,7 @@ public class BossAnimation : MonoBehaviour
                     fireAttackReady = false;
                     fireAttackCoolTime = 15.0f;
                     animator.SetTrigger("FireAttack");
+                    StartCoroutine(FireAttack());
                 }
                 else {
                     animator.SetTrigger("Attack1");
@@ -71,5 +73,13 @@ public class BossAnimation : MonoBehaviour
 
     void AttackEnd() {
         attackRange.attacking = false;
+    }
+
+    IEnumerator FireAttack()
+    {
+        yield return new WaitForSeconds(0.2f);
+        fireEffect.SetActive(true);
+        yield return new WaitForSeconds(2.3f);
+        fireEffect.SetActive(false);
     }
 }
