@@ -1734,7 +1734,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6a7998823f0a2d4c98bd65fe3694238, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ClockingObject: []
   remainTimeText: {fileID: 5609305462514287020}
   glassTime: 0
 --- !u!1 &6834957498710488744
