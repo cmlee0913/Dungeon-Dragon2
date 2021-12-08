@@ -21,10 +21,15 @@ public class StageControl : MonoBehaviour
         }
     }
 
+    [SerializeField]
     public bool stage1Clear;
+    [SerializeField]
     public bool stage2Clear;
+    [SerializeField]
     public bool stage3Clear;
+    [SerializeField]
     public bool stage4Clear;
+    [SerializeField]
     public bool bossClear;
 
     private void Awake()

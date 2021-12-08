@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 enum Phase {
     Phase0, Phase1, Phase2
@@ -45,7 +46,7 @@ public class BossManager : MonoBehaviour
     void Update() {
         PhaseCheck();
         if (Input.GetKeyDown(KeyCode.R)) {
-            phase1End = true;
+            Died();
         }
 
         
@@ -135,8 +136,14 @@ public class BossManager : MonoBehaviour
         
         OffInspector();
 
+        Debug.Log("보스주금 으앙");
+
         bossAnimation.animator.SetTrigger("Died");
 		StageControl.Instance.bossClear = true;
+
+        StartCoroutine(GoToEnding());
+
+
 	}
 
     void OnInspector() {
@@ -151,5 +158,14 @@ public class BossManager : MonoBehaviour
         hitArea.enabled = false;
         GetComponent<BoxCollider>().enabled = false;
         moveToPlayer.agent.enabled = false;
+    }
+
+    IEnumerator GoToEnding()
+    {
+        yield return new WaitForSeconds(5.0f);
+
+        SceneManager.LoadScene("Success");
+
+
     }
 }

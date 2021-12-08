@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.4902311, g: 0.50511056, b: 0.52620167, a: 1}
+  m_IndirectSpecularColor: {r: 0.49010593, g: 0.50501704, b: 0.52613986, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -739,8 +739,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2281d0507ee5934ea3478d6ed101444, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HP: 100
-  MaxHP: 100
+  HP: 1000
+  MaxHP: 1000
   Power: 0
   lastAttackTarget: {fileID: 0}
   characterName: Boss
@@ -3075,7 +3075,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2233571589885165291, guid: 79fee82a472048a4aa382b4df34ca2ca, type: 3}
       propertyPath: HP
-      value: 20
+      value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 8392918508785615135, guid: 79fee82a472048a4aa382b4df34ca2ca, type: 3}
       propertyPath: m_ApplyRootMotion
@@ -3315,6 +3315,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1024623140}
     m_Modifications:
+    - target: {fileID: 2855567796419350443, guid: a664e547493e8424a85d1a4866bc6fce, type: 3}
+      propertyPath: Loop
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2855567796419350443, guid: a664e547493e8424a85d1a4866bc6fce, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: fed22121fed815143b1ccaa823d2765f, type: 3}
     - target: {fileID: 6212222148208400764, guid: a664e547493e8424a85d1a4866bc6fce, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

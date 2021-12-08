@@ -51,31 +51,16 @@ public class CHAR_SkillUI : MonoBehaviour
             Skill1.SetActive(false);
         }
 
-        if (/*StageControl.Instance.CheckStageClear(2) &&*/ Skill2.activeSelf)
+        if (StageControl.Instance.CheckStageClear(2) && Skill2.activeSelf)
         {
             Skill2_able = true;
             Skill2.SetActive(false);
         }
 
-        if (/*StageControl.Instance.CheckStageClear(3) &&*/ Skill3.activeSelf)
+        if (StageControl.Instance.CheckStageClear(3) && Skill3.activeSelf)
         {
             Skill3_able = true;
             Skill3.SetActive(false);
-        }
-
-        if (Input.GetKeyDown(KeyCode.Q) && Skill1_able)
-        {
-            Active_Skill1();
-        }
-
-        if (Input.GetKeyDown(KeyCode.W) && Skill2_able)
-        {
-            Active_Skill2();
-        }
-
-        if (Input.GetKeyDown(KeyCode.E) && Skill3_able)
-        {
-            Active_Skill3();
         }
 
         if (!Skill1_CoolTime_UI.activeSelf)
@@ -92,6 +77,36 @@ public class CHAR_SkillUI : MonoBehaviour
         if (!Skill3_CoolTime_UI.activeSelf)
         {
             Skill3_able = true;
+        }
+
+        if(!StageControl.Instance.CheckStageClear(1))
+        {
+            Skill1_able = false;
+        }
+
+        if (!StageControl.Instance.CheckStageClear(2))
+        {
+            Skill2_able = false;
+        }
+
+        if (!StageControl.Instance.CheckStageClear(3))
+        {
+            Skill3_able = false;
+        }
+
+        if (Input.GetKeyDown(KeyCode.Q) && Skill1_able)
+        {
+            Active_Skill1();
+        }
+
+        if (Input.GetKeyDown(KeyCode.W) && Skill2_able)
+        {
+            Active_Skill2();
+        }
+
+        if (Input.GetKeyDown(KeyCode.E) && Skill3_able)
+        {
+            Active_Skill3();
         }
 
         // skill E 임시 저장
