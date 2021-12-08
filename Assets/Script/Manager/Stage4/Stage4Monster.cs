@@ -171,7 +171,7 @@ public class Stage4Monster : MonoBehaviour
 		AudioSource.PlayClipAtPoint(deathSeClip, transform.position);
 	}
 
-	void Damage(CHAR_AttackArea.AttackInfo attackInfo)
+	public void Damage(CHAR_AttackArea.AttackInfo attackInfo)
 	{
 		status.HP -= attackInfo.attackPower;
 		if (status.HP <= 0)
