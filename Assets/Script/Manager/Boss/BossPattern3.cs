@@ -15,10 +15,7 @@ public class BossPattern3 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Space))
-        {
-            SpawnFireBallSpawner();
-        }
+
     }
 
     public void SpawnFireBallSpawner()
@@ -29,6 +26,7 @@ public class BossPattern3 : MonoBehaviour
             if(rand != 1)
             {
                 fireballSpawner[i].SetActive(true);
+                fireballSpawner[i].GetComponent<FireballSpawner>().fireCount = 35;
             }
         }
     }

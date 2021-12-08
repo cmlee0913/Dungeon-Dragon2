@@ -16,10 +16,12 @@ public class BossManager : MonoBehaviour
     public AttackRange attackRange;
     public GameObject stage1Gimmik;
     public GameObject[] monsterSpawner;
+    public BossPattern3 bossPattern3;
     Phase phase = Phase.Phase0;
     public bool isUnbeatable;
+    public float fireBallTime = 5.0f;
 
-    public bool phase1Start, phase2Start, phase1End, phase2End;
+    public bool phase1Start, phase2Start, phase1End;
 
     void Awake() {
         if (instance == null) {
@@ -44,7 +46,6 @@ public class BossManager : MonoBehaviour
         PhaseCheck();
         if (Input.GetKeyDown(KeyCode.R)) {
             phase1End = true;
-            phase2End = true;
         }
 
         
@@ -57,6 +58,7 @@ public class BossManager : MonoBehaviour
                     spawner.SetActive(false);
                 phase = Phase.Phase0;
                 phase1End = true;
+                phase2Start = true;
             }
         }
     }
@@ -68,9 +70,8 @@ public class BossManager : MonoBehaviour
             Phase1Gimmik();
         }
 
-        if ((phase1End || phase2End) && isUnbeatable) {
+        if ((phase1End) && isUnbeatable) {
             phase1End = false;
-            phase2End = false;
 
             isUnbeatable = false;
 
@@ -81,6 +82,15 @@ public class BossManager : MonoBehaviour
 
             phase = Phase.Phase0;
             Phase0Gimmik();
+        }
+
+        if (phase2Start) {
+            if (fireBallTime <= 0) {
+                fireBallTime = 10f;
+                bossPattern3.SpawnFireBallSpawner();
+            }
+            if (fireBallTime > 0)
+                fireBallTime -= Time.deltaTime;
         }
     }
 
@@ -122,6 +132,7 @@ public class BossManager : MonoBehaviour
     void Died() {
         characterStatus.died = true;
         isUnbeatable = true;
+        phase2Start = false;
         
         OffInspector();
 

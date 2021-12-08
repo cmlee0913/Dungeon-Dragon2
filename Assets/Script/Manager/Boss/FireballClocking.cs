@@ -26,12 +26,11 @@ public class FireballClocking : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
-        if (collision.transform.gameObject.tag == "Player")
+        if (other.tag == "Player")
         {
-            // µ¥¹ÌÁö
-
+            other.gameObject.GetComponent<CHAR_CharacterStatus>().HP -= 10;
             Destroy(gameObject);
         }
     }
