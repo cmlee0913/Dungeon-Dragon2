@@ -276,7 +276,7 @@ MonoBehaviour:
   respawn_range: {fileID: 1214138089}
   is_poison: 1
   is_cure: 0
-  posionDamage: 10
+  posionDamage: 5
   healing: 5
 --- !u!4 &100328425
 Transform:

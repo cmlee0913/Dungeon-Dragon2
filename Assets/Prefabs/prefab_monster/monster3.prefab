@@ -1695,7 +1695,7 @@ MonoBehaviour:
   basePosition: {x: 0, y: 0, z: 0}
   dropItemPrefab:
   - {fileID: 2204677539248163507, guid: fe5f5d80c681dee45a57a977ca6cd2be, type: 3}
-  StartHealth: 50
+  StartHealth: 100
   HealthBar: {fileID: 8001768108181543970}
   state: 0
   deathSeClip: {fileID: 0}
@@ -1727,8 +1727,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2281d0507ee5934ea3478d6ed101444, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HP: 50
-  MaxHP: 50
+  HP: 100
+  MaxHP: 100
   Power: 10
   lastAttackTarget: {fileID: 0}
   characterName: Monster3

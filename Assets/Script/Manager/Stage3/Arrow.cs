@@ -49,7 +49,7 @@ public class Arrow : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            status.HP -= 15;
+            status.HP -= 10;
 
             ObjectPool.instance.PerfabQueue.Enqueue(this.gameObject);
             this.gameObject.SetActive(false);
