@@ -8,8 +8,10 @@
 획득한 아이템으로 보스전의 난이도를 완화시킬 수 있습니다.
 
 보스 몬스터를 무찌르고 갇혀있는 공주를 구하세요.
+
+CHAR_, BOSS_ 태그 작업물이 저의 작업물입니다.
 #
-Dev Log : https://www.notion.so/Chest-Hunter-3d6786e6a82c4315a1169a1d4c8eaeef  
+Dev Log : https://www.notion.so/Dungeon-Dragon-b27b23f6a5224c03a1610e8ca40318fb 
 Email : cmlee0913@naver.com
 #
 - This work was made by cmlee0913 & Game Engine Practice Group 1.
