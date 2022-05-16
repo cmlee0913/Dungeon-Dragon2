@@ -11,7 +11,7 @@
 
 CHAR_, BOSS_ 태그 작업물이 저의 작업물입니다.
 #
-Dev Log : https://www.notion.so/Dungeon-Dragon-b27b23f6a5224c03a1610e8ca40318fb 
+Dev Log : https://www.notion.so/Dungeon-Dragon-b27b23f6a5224c03a1610e8ca40318fb  
 Email : cmlee0913@naver.com
 #
 - This work was made by cmlee0913 & Game Engine Practice Group 1.
